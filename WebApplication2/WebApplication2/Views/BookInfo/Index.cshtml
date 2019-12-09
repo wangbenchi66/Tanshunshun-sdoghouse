@@ -5,12 +5,12 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
-<h2>Index</h2>
+<h2>书籍</h2>
 
 <p>
-    @Html.ActionLink("Create New", "carete")
+    @Html.ActionLink("新建", "carete")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover class">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BookType)
@@ -61,9 +61,9 @@
             @Html.DisplayFor(modelItem => item.Remark)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Update", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
+            @Html.ActionLink("修改", "Update", new { id=item.BookID }) |
+            @*@Html.ActionLink("详情", "Details", new { id=item.BookID }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.BookID })
         </td>
     </tr>
 }

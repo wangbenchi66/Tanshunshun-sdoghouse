@@ -24,9 +24,9 @@
 }
 <section class="content">
     <div id="loading">
-        <img src="~/img/loadingimg/loading3.gif" style="margin-left: 40%; margin-top: 100px; width: 350px; height: 350px;" />
+        @*<img src="~/img/loadingimg/loading3.gif" style="margin-left: 40%; margin-top: 100px; width: 350px; height: 350px;" />*@
     </div>
-    <div class="">
+    <div class="" style="margin-left:10px">
         <div class="box-body">
             <div class="pull-left">
                 @*<div class="form-group form-inline">
@@ -44,18 +44,18 @@
                                     <option value="-1">请选择</option>
                                 </select>
                             </li>*@
-                        <li><input type="button" value="查询" data-toggle="modal" data-target="#editModal" class="btn btn-default" /></li>
+                        <li>@*<input type="button" value="查询" data-toggle="modal" data-target="#editModal" class="btn btn-default" />*@</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
-                <table id="ListTb" class="table table-bordered">
+                <table id="ListTb" class="table table-bordered table-hover class">
                     <tr>
                         @*<th>标签编号</th>*@
-                        <th>编号</th>
-                        <th>词典名</th>
-                        <th>词典值</th>
-                        <th>类型</th>
+                        @*<th>编号</th>*@
+                        <th>书籍名</th>
+                        <th>书籍类型</th>
+                        <th>作者</th>
                         <th>操作</th>
                     </tr>
                 </table>
@@ -63,9 +63,9 @@
                 <script id="dataList" type="text/x-jquery-tmpl">
                     {{each  Data}}
                     <tr>
-                        <td>${BookID}</td>
+                        @*<td>${BookID}</td>*@
                         <td>${BookName}</td>
-                        <td>${BookTypeName}</td>
+                        <td>${BookType}</td>
                         <td>${AuthorName}</td>
                         <td><a href="#" class="tagDelete" tid="${BookID}">编辑</a></td>
                     </tr>
