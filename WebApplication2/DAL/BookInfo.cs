@@ -35,6 +35,7 @@ namespace DAL
         public bool IsLoan { get; set; }
 
         [DisplayName("Ê±¼ä")]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}")]
         public DateTime Addtime { get; set; }
 
         [StringLength(100)]
