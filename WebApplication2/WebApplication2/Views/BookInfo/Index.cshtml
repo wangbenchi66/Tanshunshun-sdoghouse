@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DAL.BookInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "carete")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookTypeInfo.BookTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Addtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookTypeInfo.BookTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorName)
+        </td>
+        <td>
+            @(item.IsLoan==false?"借出":"可借")
+            @*@Html.DisplayFor(modelItem => item.IsLoan)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Addtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id=item.BookID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
+        </td>
+    </tr>
+}
+
+</table>

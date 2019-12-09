@@ -1,0 +1,16 @@
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\DAL.dll.config
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\DAL.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\DAL.pdb
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\EntityFramework.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\HPIT.Data.Core.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\Newtonsoft.Json.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\EntityFramework.xml
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\Newtonsoft.Json.xml
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\实训\MVC\WebApplication2\DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\实训\MVC\WebApplication2\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\实训\MVC\WebApplication2\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\实训\MVC\WebApplication2\DAL\obj\Debug\DAL.dll
+E:\实训\MVC\WebApplication2\DAL\obj\Debug\DAL.pdb
