@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<DAL.BookInfo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "新华社";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
 <h2>书籍</h2>
 
-<p>
+<p class="btn btn-info">
     @Html.ActionLink("新建", "carete")
 </p>
-<table class="table table-bordered table-hover class">
+<table class="table table-bordered table-hover class" >
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BookType)
@@ -36,36 +36,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorName)
-        </td>
-        <td>
-            @(item.IsLoan==false?"借出":"可借")
-            @*@Html.DisplayFor(modelItem => item.IsLoan)*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Addtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remark)
-        </td>
-        <td>
-            @Html.ActionLink("修改", "Update", new { id=item.BookID }) |
-            @*@Html.ActionLink("详情", "Details", new { id=item.BookID }) |*@
-            @Html.ActionLink("删除", "Delete", new { id=item.BookID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @(item.IsLoan == false ? "借出" : "可借")
+                @*@Html.DisplayFor(modelItem => item.IsLoan)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Addtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            <td>
+                <p class="btn btn-warning">@Html.ActionLink("修改", "Update", new { id = item.BookID }) </p>
+                @*@Html.ActionLink("详情", "Details", new { id=item.BookID }) |*@
+                <p class="btn btn-danger"> @Html.ActionLink("删除", "Delete", new { id = item.BookID })</p>
+            </td>
+        </tr>
+    }
 
 </table>
