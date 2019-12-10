@@ -1,10 +1,6 @@
 ﻿using DAL;
 using HPIT.Data.Core;
 using HPIT.Survey.Portal.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApplication2.Controllers
@@ -16,12 +12,17 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-        public DeluxeJsonResult QueryPageData(SearchModel<DAL.BookInfo> search)
+        public DeluxeJsonResult QueryPageData(SearchModel<BookInfo> search)
         {
             int total = 0;
             var result = DALHelp.Instance.GetpaheData(search, out total);
-            var totaPages = total % search.PageSize == 0 ? total / search.PageSize : total / search.PageSize + 1;
-            return new DeluxeJsonResult(new { Data = result, Total = total, TotaPages = totaPages }, "yyyy-MM-dd HH:mm");
+            var totalPages = total % search.PageSize == 0 ? total / search.PageSize : total / search.PageSize + 1;
+            return new DeluxeJsonResult(new
+            {
+                Data = result,
+                Total = total,
+                TotalPages = totalPages
+            }, "yyyy-MM- dd HH: mm");
         }
     }
 }
