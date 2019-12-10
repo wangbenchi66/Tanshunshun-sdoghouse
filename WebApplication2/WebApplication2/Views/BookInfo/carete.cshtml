@@ -5,7 +5,14 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
+<style>
+    .form-group {
+        text-align: justify;
+        text-align-last: justify;
+    }
+</style>
 <h2></h2>
+
 
 @using (Html.BeginForm("CreateModel", "BookInfo"))
 {
@@ -26,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BookType, "书籍类型", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>, new { @class = "form-control" } )
+                @Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
                 @*@Html.DropDownList("BookType", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.ValidationMessageFor(model => model.BookType, "", new { @class = "text-danger" })
             </div>
@@ -80,6 +87,8 @@
             </div>
 
         </div>
+
+        <p class="glyphicon glyphicon-home"></p>
         @Html.ActionLink("返回首页", "Index")
     </div>
 }
