@@ -10,7 +10,13 @@
 <p class="btn btn-info">
     @Html.ActionLink("新建", "carete")
 </p>
-<table class="table table-bordered table-hover class" >
+
+@*<input type="button" href="blob:http://localhost:50329/BookInfo/Index" download="书籍信息表.xls"  />导出表格*@
+<a href="blob:http://localhost:50329/BookInfo/Index" download="书籍信息表.xls" id="output">导出表格</a>
+
+
+
+<table class="table table-bordered table-hover class">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BookType)
