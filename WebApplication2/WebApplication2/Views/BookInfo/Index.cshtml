@@ -4,18 +4,26 @@
     ViewBag.Title = "新华社";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
-
+<style>
+    table,th {
+        text-align: center
+    }
+</style>
 <h2>书籍</h2>
 
-<p class="btn btn-info">
+<p class="btn btn-default glyphicon glyphicon-plus">
+
     @Html.ActionLink("新建", "carete")
 </p>
+<<<<<<< HEAD
 
 @*<input type="button" href="blob:http://localhost:50329/BookInfo/Index" download="书籍信息表.xls"  />导出表格*@
 <a href="blob:http://localhost:50329/BookInfo/Index" download="书籍信息表.xls" id="output">导出表格</a>
 
 
 
+=======
+>>>>>>> 31cc3480af629776355d39f67984c3b097c447af
 <table class="table table-bordered table-hover class">
     <tr>
         <th>
@@ -39,7 +47,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Remark)
         </th>
-        <th></th>
+        <th>操作</th>
     </tr>
 
     @foreach (var item in Model)
@@ -68,9 +76,9 @@
                 @Html.DisplayFor(modelItem => item.Remark)
             </td>
             <td>
-                <p class="btn btn-warning">@Html.ActionLink("修改", "Update", new { id = item.BookID }) </p>
+                @Html.ActionLink("修改", "Update", new { id = item.BookID }, new { @class = "btn btn-primary glyphicon glyphicon-pencil" })
                 @*@Html.ActionLink("详情", "Details", new { id=item.BookID }) |*@
-                <p class="btn btn-danger"> @Html.ActionLink("删除", "Delete", new { id = item.BookID })</p>
+                @Html.ActionLink("删除", "Delete", new { id = item.BookID }, new { @class = "btn btn-danger glyphicon glyphicon-remove" })
             </td>
         </tr>
     }
