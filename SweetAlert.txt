@@ -1,0 +1,55 @@
+swal("ss", "提交成功！", "info");   error success
+<link href="https://cdn.bootcss.com/sweetalert/1.1.2/sweetalert.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/sweetalert/1.1.2/sweetalert.min.js"></script>
+
+
+swal({
+  title: "确定要删除吗？",
+  text: "删除以后无法再对数据进行恢复了！",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "删除",
+  cancelButtonText: "取消",
+  closeOnConfirm: false
+},
+function(){
+  swal("删除成功！", "恭喜，数据删除成功！.", "success");
+});
+
+
+
+
+swal({
+  title: "确定要删除吗？",
+  text: "删除以后无法再对数据进行恢复了！",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "删除",
+  cancelButtonText: "取消",
+  closeOnConfirm: false
+  closeOnCancel: false
+},
+function(isConfirm){
+  if (isConfirm) {
+    swal("删除成功!", "恭喜，数据删除成功！.", "success");
+  } else {
+    swal("取消操作！", "您的数据暂时还是安全的 :)", "error");
+  }
+});
+
+
+
+ swal({
+  title: "自动关闭提示框！",
+  text: "设置2秒后自动关闭！",
+  timer: 2000,
+  showConfirmButton: false,
+})
+
+sweetalert官网
+http://mishengqiang.com/sweetalert/
+
+https://www.helloweba.net/javascript/308.html
+
