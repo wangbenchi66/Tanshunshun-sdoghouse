@@ -8,13 +8,36 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
     @RenderSection("styles", false)
 
 </head>
+
 <body>
     <div>
         @RenderBody()
     </div>
+    <script>
+        //使用outerHTML属性获取整个table元素的HTML代码（包括 < table > 标签），然后包装成一个完整的HTML文档，设置charset为urf - 8以防止中文乱码
+        //的撒啊
+        //十大
+        //大苏打的
+        var table = document.getElementsByTagName("table")[0];
+        var tbody = $(table.outerHTML)[0];
+        var html = $("<table></table>");
+        for (var i = 0; i < tbody.rows.length; i++) {
+            var tr = tbody.rows[i];
+            $(tr).find("td:eq(7)").replaceWith("");
+            html.append(tr.outerHTML);       
+        }
+        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
+        var blob = new Blob([html[0].outerHTML], { type: "application/vnd.ms-excel" });
+        var a = document.getElementById("output");
+        // 利用URL.createObjectURL()方法为a元素生成blob URL
+        a.href = URL.createObjectURL(blob);
+        // 设置文件名
+        a.download = "书籍信息表.xls";
+    </script>
 </body>
 @RenderSection("scripts", false)
 </html>
