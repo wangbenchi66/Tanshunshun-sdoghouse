@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/Echarts.js"></script>
+</head>
+<body>
+    <div>
+        <div id="main" style="width: 50%; height: 400px; float: left; background-color:bisque" class="col-md-8"></div>
+        <div id="main2" style="width: 50%; height: 400px; float: left; background-color:bisque" class="col-md-8"></div>
+    </div>
+    <script>
+        $(function () {
+            //排名前五分析图
+            var myChart = echarts.init(document.getElementById('main'));
+            $.ajax({
+                url: "/Echart/EcSellAnalyze",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (json) {
+                    data = json
+                    myChart.setOption({
+                        title: {
+                            text: '超市各类别数量分析',
+                            //subtext: '共计人数： ' + $("#lab_headcount").text(),
+                            x: 'center'
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            left: 'left',
+                            data: data,
+                        },
+                        series: [
+                            {
+                                name: '类别',
+                                type: 'pie',
+                                radius: '55%',
+                                data: data,
+                            }
+                        ],
+
+                    })
+                }
+            })
+            var myChart2 = echarts.init(document.getElementById('main2'));
+            $.ajax({
+                url: "/Echart/EcSellTOP",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (json) {
+                    data = json
+                    console.log(json);
+                    myChart2.setOption({
+
+                        title: {
+                            text: '销售商品统计',
+                            subtext: '数据来自数据库'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        //legend: {
+                        //    data: ['2011年']
+                        //},
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'value',
+                            boundaryGap: [0, 0.01]
+                        },
+                        yAxis: {
+                            type: 'category',
+                            //data: ['巴西', '印尼', '美国', '印度']
+                            data: [json[0].name, json[1].name, json[2].name, json[3].name, json[4].name ]
+                        },
+                        series: [
+                            {
+                                name: '2011年',
+                                type: 'bar',
+                                data: data
+                            }
+                        ]
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>
