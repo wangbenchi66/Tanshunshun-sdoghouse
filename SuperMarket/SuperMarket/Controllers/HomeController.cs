@@ -19,8 +19,8 @@ namespace SuperMarket.Controllers
             JsonResult json = new JsonResult();
             LoginDal dal = new LoginDal();
             List<employee> list = dal.List();
-            //string obj = JsonConvert.SerializeObject(new { data = list });
-            json.Data = new { data = list };
+            string obj = JsonConvert.SerializeObject(new { data = list });
+            json.Data = new { Data = list };
             json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return json;
 
