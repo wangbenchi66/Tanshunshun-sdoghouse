@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+</head>
+<body>
+    <div>
+        <div class="row">
+            <table id="listTB" class="table table-bordered">
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>密码</th>
+                    <th>1</th>
+                    <th>2</th>
+                </tr>
+            </table>
+            <div class="pagebox" style="height:30px;" id="box"></div>
+
+            <script id="scrID" type="text/x-jquery-tmpl">
+
+                {{each  Data}}
+                <tr>
+                    <td>${EmpId}</td>
+                    <td>${EmpName}</td>
+                    <td>${EmpPwd}</td>
+                </tr>
+                {{/each}}
+
+            </script>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "/Home/sele",
+                data: {},
+                type: "get",
+                dataType: "json",
+                success: function (result) { 
+                    $("#scrID").tmpl(result).appendTo("#listTB");
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
