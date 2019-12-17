@@ -10,11 +10,13 @@ namespace SuperMarket.Controllers
 {
     public class LoginController : Controller
     {
+        [AllowAnonymous]
         // GET: Login
         public ActionResult Index()
         {
             return View();
         }
+        [AllowAnonymous]
         public JsonResult LoginIn(string name = "", string pwd = "")
         {
             LoginDal dal = new LoginDal();
