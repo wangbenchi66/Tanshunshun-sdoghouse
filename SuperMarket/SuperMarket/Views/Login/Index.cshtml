@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+</head>
+<body>
+    <div>
+        <input id="name" type="text" />
+        <br />
+        <input id="pwd" type="text" />
+        <br />
+        <input id="btn" type="button" value="登录" />
+    </div>
+    <script>
+            $(document).ready(function () {
+                $("#btn").on("click", function () {
+                    var name = $("#name").val();
+                    var pwd = $("#pwd").val();
+                    //ajax
+                    $.ajax({
+                        url: "/Login/LoginIn",
+                        type: "post",
+                        dateType: "json",
+                        data: { "name": name, "pwd": pwd },
+                        success: function (json) {
+                            if (json.state == 200) {
+                                window.location.href = "/Home/Index";
+                            } else {
+                                alert(json.state);
+                            }
+                        }
+                    })
+                })
+            })
+    </script>
+</body>
+</html>
