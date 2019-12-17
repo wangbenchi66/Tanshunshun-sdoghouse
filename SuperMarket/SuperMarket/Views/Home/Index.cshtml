@@ -11,6 +11,8 @@
     <title>Index</title>
     <script src="~/js_css/jquery-1.7.js"></script>
     <script src="~/js_css/jquery.tmpl.js"></script>
+    <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="~/js_css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -19,9 +21,7 @@
                 <tr>
                     <th>编号</th>
                     <th>姓名</th>
-                    <th>密码</th>
-                    <th>1</th>
-                    <th>2</th>
+                    @*<th>密码</th>*@
                 </tr>
             </table>
             <div class="pagebox" style="height:30px;" id="box"></div>
@@ -32,7 +32,7 @@
                 <tr>
                     <td>${EmpId}</td>
                     <td>${EmpName}</td>
-                    <td>${EmpPwd}</td>
+                    @*<td>${EmpPwd}</td>*@
                 </tr>
                 {{/each}}
 
