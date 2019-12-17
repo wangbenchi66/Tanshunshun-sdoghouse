@@ -79,15 +79,24 @@ insert into GoodsType values('零食')
 insert into GoodsType values('日用')
 select * from GoodsType
 
-insert into Goods values('百事可乐',1001,3,2.5)
-insert into Goods values('康师傅冰红茶',1001,3,2)
-insert into Goods values('统一阿萨姆奶茶',1001,4,3)
-insert into Goods values('阿尔卑斯棒棒糖',1002,1,0.5)
-insert into Goods values('白色恋人饼干',1002,300,219)
-insert into Goods values('丹夫华夫饼',1002,120,100)
-insert into Goods values('云南白药创可贴',1003,26,25)
-insert into Goods values('马克笔',1003,24,20)
-insert into Goods values('保温杯',1003,30,21)
+insert into Goods values('百事可乐',1001,3,2,'~/images/Food/kele.jpg')
+insert into Goods values('胃动力',1001,6,5,'~/images/Food/weidongli.jpg')
+insert into Goods values('统一阿萨姆奶茶',1001,4,3,'~/images/Food/asamu.jpg')
+insert into Goods values('脉动',1001,5,4,'~/images/Food/maidong.jpg')
+insert into Goods values('红牛',1001,6,5,'~/images/Food/redbull.jpg')
+
+insert into Goods values('阿尔卑斯棒棒糖',1002,1,0.5,'~/images/Food/aerbeisi.jpg')
+insert into Goods values('德芙（盒装）',1002,300,219,'~/images/Food/defu3.jpg')
+insert into Goods values('德芙（袋装）',1002,120,100,'~/images/Food/defu1.jpg')
+insert into Goods values('乐吧',1002,2,1,'~/images/Food/leba2.jpg')
+insert into Goods values('面包',1002,8,6,'~/images/Food/mianbao1.jpg')
+insert into Goods values('土司',1002,25,18,'~/images/Food/miaobao2.jpg')
+insert into Goods values('奥利奥',1002,10,7,'~/images/Food/aoliao.jpg')
+
+insert into Goods values('电动牙刷',1003,199,150,'~/images/Food/yashua.jpg')
+insert into Goods values('洗手机',1003,300,235,'~/images/Food/xishouji.jpg')
+insert into Goods values('牙膏',1003,30,21,'~/images/Food/yagao.jpg')
+insert into Goods values('剃须刀',1003,199,170,'~/images/Food/guhudao.jpg')
 select * from Goods
 
 insert into sell values(2001,3,default)
