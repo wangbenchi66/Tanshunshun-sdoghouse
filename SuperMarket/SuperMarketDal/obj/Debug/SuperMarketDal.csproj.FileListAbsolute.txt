@@ -1,0 +1,11 @@
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.dll.config
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.dll
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.pdb
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.dll
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.SqlServer.dll
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.xml
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.SqlServer.xml
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CoreCompileInputs.cache
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
+E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb
