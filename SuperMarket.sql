@@ -53,6 +53,7 @@ create table Goods --商品信息
    GoodsTypeId int references GoodsType(GoodsTypeId)  not null,    
    SellPrice money null, --销售价格
    EnterPrice money null,--进货价格
+   GoodsImg varchar(200) not null,--商品图片
 );
 
 create table sell --商品销售
