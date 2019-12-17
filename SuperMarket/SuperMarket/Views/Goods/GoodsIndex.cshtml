@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GoodsIndex</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+    <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="~/js_css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="row">
+            <table id="listTB" class="table table-bordered">
+                <tr>
+                    <th>编号</th>
+                    <th>图片</th>
+                    <th>商品名</th>
+                    <th>价格</th>
+                </tr>
+            </table>
+            <div class="pagebox" style="height:30px;" id="box"></div>
+
+            <script id="scrID" type="text/x-jquery-tmpl">
+
+                {{each  Data}}
+                <tr>
+                    <td>${GoodsId}</td>
+                    <td>${GoodsImg}</td>
+                    <td>${GoodsTypeName}</td>
+                    <td>${GoodsName}</td>
+                    <td>${SellPrice}</td>
+                </tr>
+                {{/each}}
+
+            </script>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "/Goods/select",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+                    //alert(result.Data);
+                    $("#listTB tr:gt(0)").remove();
+                    //$("#scrID").tmpl(result.Data).appendTo("#listTB");
+                    console.log(JSON.parse(result.Data))
+                    var json = JSON.parse(result.Data);
+                    //console.log(json["Data"][0]["GoodsType"].GoodsTypeName);
+                    for (var i = 0; i < json["Data"].length; i++) {
+                        //alert(json["Data"][i]["GoodsType"].GoodsTypeName);
+                        $("#listTB").append("<tr><td>" + json["Data"][i]["Goods"].GoodsId + "</td><td>"
+                            + json["Data"][i]["GoodsType"].GoodsTypeName + "</td><td>"
+                            + json["Data"][i]["Goods"].GoodsName + "</td><td>"
+                            + json["Data"][i]["Goods"].SellPrice + "</td></tr>");
+                    }
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
