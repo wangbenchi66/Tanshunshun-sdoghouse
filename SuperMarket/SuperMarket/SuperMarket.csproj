@@ -104,6 +104,15 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="HPIT.Data.Core\HPIT.Data.Core.dll" />
+    <Content Include="images\123456.jpg" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap.css" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\js\bootstrap.js" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\js\bootstrap.min.js" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\js\npm.js" />
     <Content Include="js_css\common.js" />
     <Content Include="js_css\jquery-1.7.js" />
     <Content Include="js_css\jquery.tmpl.js" />
@@ -120,6 +129,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap.css.map" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="js_css\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
