@@ -9,4 +9,3 @@ E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarket
 E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
 E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
 E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb
-E:\项目\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csprojAssemblyReference.cache
