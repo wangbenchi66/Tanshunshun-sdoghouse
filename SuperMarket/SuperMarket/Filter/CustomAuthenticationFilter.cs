@@ -22,7 +22,6 @@ namespace MVCLearn.Filters
             }
             var Url = new UrlHelper(filterContext.RequestContext);
             var urlstr = Url.Action("Index", "Login");
-            //var urlstr = Url.Action("Index", "Page");
             // filterContext.Result = new RedirectResult(urlstr); //指定返回重定向登录界面
             HttpCookie cokie = filterContext.HttpContext.Request.Cookies.Get("Login");
             if (cokie == null)
