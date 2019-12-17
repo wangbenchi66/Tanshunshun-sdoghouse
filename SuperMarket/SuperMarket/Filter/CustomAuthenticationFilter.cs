@@ -36,7 +36,7 @@ namespace MVCLearn.Filters
             else
             {
                 var value = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(cokie.Value));
-                //LogHelper.Default.WriteInfo(value + "登录");
+                LogHelper.Default.WriteInfo(value + "登录");
                 DeluxeUser.CurrentMember = JsonConvert.DeserializeObject<employee>(value);
             }
         }
