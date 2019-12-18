@@ -127,6 +127,20 @@ insert into sell values(2002,3,default)
 insert into sell values(2003,4,default)
 insert into sell values(2004,120,default)
 insert into sell values(2005,24,default)
+
+insert into sell values(2006,5,default)
+insert into sell values(2007,88,default)
+insert into sell values(2008,99,default)
+insert into sell values(2009,5,default)
+insert into sell values(2010,457,default)
+insert into sell values(2011,45,default)
+insert into sell values(2012,5,default)
+insert into sell values(2013,4,default)
+insert into sell values(2014,2,default)
+insert into sell values(2015,85,default)
+insert into sell values(2016,54,default)
+insert into sell values(2017,50,default)
+insert into sell values(2018,5,default)
 select * from sell
 
 
