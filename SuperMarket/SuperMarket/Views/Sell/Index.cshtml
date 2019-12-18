@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GoodsIndex</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+    <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="~/js_css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="row">
+            <table id="listTB" class="table table-bordered">
+                <tr>
+                    <th>编号</th>
+                    <th>商品编号</th>
+                    <th>数量</th>
+                    <th>时间</th>
+                   
+                </tr>
+            </table>
+            <div class="pagebox" style="height:30px;" id="box"></div>
+
+            <script id="scrID" type="text/x-jquery-tmpl">
+
+                {{each  Data}}
+                <tr>
+                    <td>${SellId}</td>
+                    <td>${GoodsId}</td>
+                    <td>${SellCount}</td>
+                    <td>${CreateData}</td>
+                   
+                </tr>
+                {{/each}}
+
+            </script>
+        </div>
+        <script>
+            $(function () {
+                $.ajax({
+                    url: "/Sell/SellList",
+                    data: {},
+                    type: "get",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#scrID").tmpl(result).appendTo("#listTB");
+                    }
+                })
+            })
+        </script>
+    </div>
+</body>
+</html>

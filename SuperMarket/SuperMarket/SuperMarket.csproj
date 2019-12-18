@@ -105,9 +105,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\SuperMarket.dll" />
+    <Content Include="bin\SuperMarket.pdb" />
     <Content Include="Global.asax" />
     <Content Include="HPIT.Data.Core\HPIT.Data.Core.dll" />
     <Content Include="images\123456.jpg" />
+    <Content Include="images\aerbeisi.jpg" />
+    <Content Include="images\aoliao.jpg" />
+    <Content Include="images\asamu.jpg" />
+    <Content Include="images\ben1.jpg" />
+    <Content Include="images\ben2.jpg" />
+    <Content Include="images\bi1.jpg" />
+    <Content Include="images\bi2.jpg" />
+    <Content Include="images\bi3.jpg" />
+    <Content Include="images\cu.jpg" />
+    <Content Include="images\defu1.jpg" />
+    <Content Include="images\defu3.jpg" />
+    <Content Include="images\guhudao.jpg" />
+    <Content Include="images\hai.jpg" />
+    <Content Include="images\kele.jpg" />
+    <Content Include="images\leba1.jpg" />
+    <Content Include="images\leba2.jpg" />
+    <Content Include="images\liqun.jpg" />
+    <Content Include="images\maidong.jpg" />
+    <Content Include="images\meng.jpg" />
+    <Content Include="images\mianbao1.jpg" />
+    <Content Include="images\miaobao2.jpg" />
+    <Content Include="images\miaobao3.jpg" />
+    <Content Include="images\miaobao4.jpg" />
+    <Content Include="images\redbull.jpg" />
+    <Content Include="images\shilijia.jpg" />
+    <Content Include="images\shisanxiang.jpg" />
+    <Content Include="images\tian.jpg" />
+    <Content Include="images\wanbaolu.jpg" />
+    <Content Include="images\weidongli.jpg" />
+    <Content Include="images\weijing.jpg" />
+    <Content Include="images\xiangyou.jpg" />
+    <Content Include="images\xishouji.png" />
+    <Content Include="images\yagao.jpg" />
+    <Content Include="images\yan.jpg" />
+    <Content Include="images\yashua.jpg" />
+    <Content Include="images\zhimajiang.jpg" />
+    <Content Include="images\zhonghua.jpg" />
     <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
     <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
     <Content Include="js_css\bootstrap-3.3.7-dist\css\bootstrap.css" />
@@ -124,8 +163,11 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EchartController.cs" />
+    <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Filter\CustomAuthenticationFilter.cs" />
     <Compile Include="Filter\DeluxeUser.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +189,9 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Echart\Index.cshtml" />
+    <Content Include="Views\Goods\GoodsIndex.cshtml" />
+    <Content Include="Views\Sell\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -56,14 +56,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Echart.cs" />
+    <Compile Include="EchartDal.cs" />
+    <Compile Include="GoodsDAL.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="LoginDal.cs" />
+    <Compile Include="ModelCount.cs" />
+    <Compile Include="Model\EchartModel.cs" />
     <Compile Include="Model\employee.cs" />
     <Compile Include="Model\Goods.cs" />
     <Compile Include="Model\GoodsType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\role.cs" />
     <Compile Include="Model\sell.cs" />
+    <Compile Include="sellDal.cs" />
     <Compile Include="SuperMarketDB.cs" />
   </ItemGroup>
   <ItemGroup>
