@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+}
+<script src="~/js_css/jquery-1.7.js"></script>
+<link href="~/UPLoadStyle/fileinput.css" rel="stylesheet" />
+<link href="~/UPLoadStyle/theme.css" rel="stylesheet" />
+<script src="~/UPLoadStyle/fileinput.js"></script>
+<script src="~/UPLoadStyle/ftheme.js"></script>
+<script src="~/UPLoadStyle/piexif.js"></script>
+<script src="~/UPLoadStyle/sortable.js"></script>
+<script src="~/UPLoadStyle/theme.js"></script>
+<script src="~/UPLoadStyle/zh.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<h1>文件上传</h1>
+<form action="/FileTxt/processUpLoadFiles" method="post" enctype="multipart/form-data">
+    <input id="file1" type="file" multiple name="filenames" class="file" /><br>
+    <input id="Submit1" type="submit" value="上传文件" />
+</form>

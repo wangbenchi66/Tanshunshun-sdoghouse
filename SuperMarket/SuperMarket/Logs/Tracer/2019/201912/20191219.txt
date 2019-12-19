@@ -1,0 +1,182 @@
+
+记录时间：2019-12-19 09:27:31,927 
+线程ID:[79] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:27:32,755 
+线程ID:[85] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:27:32,755 
+线程ID:[75] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:27:40,824 
+线程ID:[85] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:27:41,118 
+线程ID:[75] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:34:43,081 
+线程ID:[64] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:34:43,151 
+线程ID:[75] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:34:43,154 
+线程ID:[6] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:35:20,840 
+线程ID:[64] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:35:20,891 
+线程ID:[72] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:35:20,893 
+线程ID:[75] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:42:12,619 
+线程ID:[55] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:42:12,708 
+线程ID:[64] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:42:12,710 
+线程ID:[72] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:42:39,011 
+线程ID:[51] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 09:42:39,068 
+线程ID:[59] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:07:39,835 
+线程ID:[13] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:07:40,197 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:07:40,197 
+线程ID:[15] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:07:46,671 
+线程ID:[13] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:07:46,975 
+线程ID:[16] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:08:17,956 
+线程ID:[11] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:08:17,978 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:08:18,728 
+线程ID:[13] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:08:18,731 
+线程ID:[14] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
+
+记录时间：2019-12-19 10:08:19,173 
+线程ID:[11] 
+日志级别：  INFO  
+出错类：Logger property: [(null)] - 
+错误描述：{"role":{"RoleId":102,"RoleName":"员工"},"EmpId":201,"EmpName":"谭顺顺","EmpPwd":"123456","RoleId":102}登录
+ 
