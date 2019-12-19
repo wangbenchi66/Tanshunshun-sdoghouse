@@ -26,6 +26,7 @@ namespace SuperMarketDal
 
         [Column(TypeName = "money")]
         public decimal? EnterPrice { get; set; }
+        public string GoodsImg { get; set; }
 
         public virtual GoodsType GoodsType { get; set; }
 
