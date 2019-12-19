@@ -1,3 +1,5 @@
+use master
+go
 if exists(select * from sys.databases where name='SuperMarket')
 drop database SuperMarket
 go
@@ -54,6 +56,7 @@ create table Goods --商品信息
    SellPrice money null, --销售价格
    EnterPrice money null,--进货价格
    GoodsImg varchar(200) not null,--商品图片
+   GoodsState int default(1),--商品状态  1为上架  2为下架
 );
 
 create table sell --商品销售
@@ -82,44 +85,44 @@ insert into GoodsType values('调料')
 insert into GoodsType values('办公')
 select * from GoodsType
 
-insert into Goods values('百事可乐',1001,3,2,'~/images/Food/kele.jpg')
-insert into Goods values('胃动力',1001,6,5,'~/images/Food/weidongli.jpg')
-insert into Goods values('统一阿萨姆奶茶',1001,4,3,'~/images/Food/asamu.jpg')
-insert into Goods values('脉动',1001,5,4,'~/images/Food/maidong.jpg')
-insert into Goods values('红牛',1001,6,5,'~/images/Food/redbull.jpg')
+insert into Goods values('百事可乐',1001,3,2,'/images/Food/kele.jpg',default)
+insert into Goods values('胃动力',1001,6,5,'/images/Food/weidongli.jpg',default)
+insert into Goods values('统一阿萨姆奶茶',1001,4,3,'/images/Food/asamu.jpg',default)
+insert into Goods values('脉动',1001,5,4,'/images/Food/maidong.jpg',default)
+insert into Goods values('红牛',1001,6,5,'/images/Food/redbull.jpg',default)
 
-insert into Goods values('阿尔卑斯棒棒糖',1002,1,0.5,'~/images/Food/aerbeisi.jpg')
-insert into Goods values('德芙（盒装）',1002,300,219,'~/images/Food/defu3.jpg')
-insert into Goods values('德芙（袋装）',1002,120,100,'~/images/Food/defu1.jpg')
-insert into Goods values('乐吧',1002,2,1,'~/images/Food/leba2.jpg')
-insert into Goods values('面包',1002,8,6,'~/images/Food/mianbao1.jpg')
-insert into Goods values('土司',1002,25,18,'~/images/Food/miaobao2.jpg')
-insert into Goods values('奥利奥',1002,10,7,'~/images/Food/aoliao.jpg')
+insert into Goods values('阿尔卑斯棒棒糖',1002,1,0.5,'/images/Food/aerbeisi.jpg',default)
+insert into Goods values('德芙（盒装）',1002,300,219,'/images/Food/defu3.jpg',default)
+insert into Goods values('德芙（袋装）',1002,120,100,'/images/Food/defu1.jpg',default)
+insert into Goods values('乐吧',1002,2,1,'/images/Food/leba2.jpg',default)
+insert into Goods values('面包',1002,8,6,'/images/Food/mianbao1.jpg',default)
+insert into Goods values('土司',1002,25,18,'/images/Food/miaobao2.jpg',default)
+insert into Goods values('奥利奥',1002,10,7,'/images/Food/aoliao.jpg',default)
 
-insert into Goods values('电动牙刷',1003,199,150,'~/images/Food/yashua.jpg')
-insert into Goods values('洗手机',1003,300,235,'~/images/Food/xishouji.jpg')
-insert into Goods values('牙膏',1003,30,21,'~/images/Food/yagao.jpg')
-insert into Goods values('剃须刀',1003,199,170,'~/images/Food/guhudao.jpg')
+insert into Goods values('电动牙刷',1003,199,150,'/images/Food/yashua.jpg',default)
+insert into Goods values('洗手机',1003,300,235,'/images/Food/xishouji.jpg',default)
+insert into Goods values('牙膏',1003,30,21,'/images/Food/yagao.jpg',default)
+insert into Goods values('剃须刀',1003,199,170,'/images/Food/guhudao.jpg',default)
 
-insert into Goods values('利群',1004,14,13,'~/images/Food/liqun.jpg')
-insert into Goods values('中华',1004,60,58,'~/images/Food/zhonghua.jpg')
-insert into Goods values('万宝路',1004,20,18,'~/images/Food/wanbaolu.jpg')
-insert into Goods values('天之蓝',1004,248,200,'~/images/Food/tian.jpg')
-insert into Goods values('海之蓝',1004,258,200,'~/images/Food/hai.jpg')
-insert into Goods values('梦之蓝',1004,480,300,'~/images/Food/meng.jpg')
+insert into Goods values('利群',1004,14,13,'/images/Food/liqun.jpg',default)
+insert into Goods values('中华',1004,60,58,'/images/Food/zhonghua.jpg',default)
+insert into Goods values('万宝路',1004,20,18,'/images/Food/wanbaolu.jpg',default)
+insert into Goods values('天之蓝',1004,248,200,'/images/Food/tian.jpg',default)
+insert into Goods values('海之蓝',1004,258,200,'/images/Food/hai.jpg',default)
+insert into Goods values('梦之蓝',1004,480,300,'/images/Food/meng.jpg',default)
 
-insert into Goods values('盐',1005,2,1,'~/images/Food/yan.jpg')
-insert into Goods values('十三香',1005,2,1,'~/images/Food/shisanxiang.jpg')
-insert into Goods values('醋',1005,10,5,'~/images/Food/cu.jpg')
-insert into Goods values('味精',1005,2,1,'~/images/Food/weijing.jpg')
-insert into Goods values('香油',1005,12,10,'~/images/Food/xiangyou.jpg')
-insert into Goods values('芝麻酱',1005,6,5,'~/images/Food/zhimajiang.jpg')
+insert into Goods values('盐',1005,2,1,'/images/Food/yan.jpg',default)
+insert into Goods values('十三香',1005,2,1,'/images/Food/shisanxiang.jpg',default)
+insert into Goods values('醋',1005,10,5,'/images/Food/cu.jpg',default)
+insert into Goods values('味精',1005,2,1,'/images/Food/weijing.jpg',default)
+insert into Goods values('香油',1005,12,10,'/images/Food/xiangyou.jpg',default)
+insert into Goods values('芝麻酱',1005,6,5,'/images/Food/zhimajiang.jpg',default)
 
-insert into Goods values('小米巨能写中性笔10支装',1006,9.99,9,'~/images/Food/bi1.jpg')
-insert into Goods values('小米中性笔 10支装 ',1006,24.9,20,'~/images/Food/bi2.jpg')
-insert into Goods values('米家金属签字笔 ',1006,24.9,20,'~/images/Food/bi3.jpg')
-insert into Goods values('小米记事本',1006,9.9,9,'~/images/Food/ben1.jpg')
-insert into Goods values('小米米家液晶小黑板',1006,99,90,'~/images/Food/ben2.jpg')
+insert into Goods values('小米巨能写中性笔10支装',1006,9.99,9,'/images/Food/bi1.jpg',default)
+insert into Goods values('小米中性笔 10支装 ',1006,24.9,20,'/images/Food/bi2.jpg',default)
+insert into Goods values('米家金属签字笔 ',1006,24.9,20,'/images/Food/bi3.jpg',default)
+insert into Goods values('小米记事本',1006,9.9,9,'/images/Food/ben1.jpg',default)
+insert into Goods values('小米米家液晶小黑板',1006,99,90,'/images/Food/ben2.jpg',default)
 select * from Goods
 
 insert into sell values(2001,3,default)
