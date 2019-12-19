@@ -53,7 +53,20 @@ namespace SuperMarketDal
         public static int GoodsDelete(Goods goods)
         {
             SuperMarketDB db = new SuperMarketDB();
-            string sql = string.Format(@"delete Goods where GoodsId={0}", goods.GoodsId);
+            string sql = string.Format(@"update Goods set GoodsState=2 where GoodsId={0}", goods.GoodsId);
+            int result = (int)db.Database.ExecuteSqlCommand(sql);
+            return result;
+        }
+
+        /// <summary>
+        /// 上架商品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static int GoodsState(Goods goods)
+        {
+            SuperMarketDB db = new SuperMarketDB();
+            string sql = string.Format(@"update Goods set GoodsState=1 where GoodsId={0}", goods.GoodsId);
             int result = (int)db.Database.ExecuteSqlCommand(sql);
             return result;
         }

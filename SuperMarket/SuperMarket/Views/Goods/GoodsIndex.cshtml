@@ -19,9 +19,10 @@
     <script src="~/X-admin-2.2/lib/layui/layui.js"></script>
     <style>
         img {
-        width:150px;
-        height:150px;
+            width: 150px;
+            height: 150px;
         }
+
         td {
             vertical-align: middle !important
         }
@@ -29,7 +30,7 @@
 </head>
 <body>
     <div>
-        <div class="">
+        <div class="" style="margin-left:30px;margin-top:30px">
 
             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加商品</button>
             <!-- 模态框（Modal） -->
@@ -59,13 +60,15 @@
                 </div><!-- /.modal -->
             </div>
 
-            <table id="listTB" class="table" style="font-size:20px">
+            <table id="listTB" class="table table-hover" style="font-size:20px">
                 <tr>
                     <th>编号</th>
                     <th>商品类别</th>
                     <th>图片</th>
                     <th>商品名</th>
                     <th>价格</th>
+                    <th>当前商品状态</th>
+                    <th>操作</th>
                 </tr>
             </table>
             <div class="pagebox" style="height:30px;" id="box"></div>
@@ -80,8 +83,18 @@
                     <td>${Goods.SellPrice}</td>
                     @*删除需要先删除销售记录*@
                     <td>
-                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}'>下架</a>
+                        ${Goods.GoodsState==1?"商品已正常":"商品已售罄"}
                     </td>
+                    {{if Goods.GoodsState==1}}
+                    <td>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-warning btn-lg">下架</a>
+                    </td>
+                    {{/if}}
+                    {{if Goods.GoodsState==2}}
+                    <td>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-success btn-lg" >上架</a>
+                    </td>
+                    {{/if}}
                 </tr>
                 {{/each}}
 
@@ -93,10 +106,9 @@
     <script>
         $(function () {
 
-            //删除
+            //下架
             $("#listTB").on("click", "#delete", function () {
                 var id = $(this).attr("GoodsId");
-                alert(id);
                 $.ajax({
                     url: "/Goods/GoodsDelete",
                     data: { id: id },
@@ -104,18 +116,43 @@
                     dataType: "json",
                     success: function (result) {
                         if (result > 0) {
-                            layer.msg('已删除!', {
+                            layer.msg('已下架成功!', {
                                 icon: 1,
                                 time: 1000
                             });
-                            $('#myModal').modal('hide')
-                            select();
+                           
                         } else {
-                            layer.msg('请重新尝试删除!', {
+                            layer.msg('请重新尝试下架!', {
                                 icon: 2,
                                 time: 1000
                             });
                         }
+                        select();
+                    }
+                })
+            })
+            //上架
+            $("#listTB").on("click", "#delete", function () {
+                var id = $(this).attr("GoodsId");
+                $.ajax({
+                    url: "/Goods/GoodsState",
+                    data: { id: id },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result > 0) {
+                            layer.msg('已上架!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                           
+                        } else {
+                            layer.msg('请重新尝试上架!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                        select();
                     }
                 })
             })
