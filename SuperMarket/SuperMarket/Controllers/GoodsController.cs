@@ -31,14 +31,14 @@ namespace SuperMarket.Controllers
             //         {
             //             GoodsTypeName = ss.GoodsType.GoodsTypeName
             //         };
-            JsonSerializerSettings setting = new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                Formatting = Formatting.None
-            };
-            string ret = JsonConvert.SerializeObject(new { Data = list }, setting);
-            json.Data = new { Data = ret };
-            json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            //JsonSerializerSettings setting = new JsonSerializerSettings()
+            //{
+            //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            //    Formatting = Formatting.None
+            //};
+            //string ret = JsonConvert.SerializeObject(new { Data = list }, setting);
+            json.Data = new { Data = list };
+            //json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return json;
         }
         /// <summary>
@@ -79,6 +79,26 @@ namespace SuperMarket.Controllers
             if (result>0)
             {
                 num = result  ;
+            }
+            return Json(num);
+        }
+        /// <summary>
+        /// 商品信息删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GoodsDelete(int id)
+        {
+            int num = 0;
+            Goods goods = new Goods()
+            {
+                GoodsId = id
+            };
+            int result = GoodsDAL.GoodsDelete(goods);
+            if (result > 0)
+            {
+                num = result;
             }
             return Json(num);
         }
