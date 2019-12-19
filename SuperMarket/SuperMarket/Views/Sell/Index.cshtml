@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>GoodsIndex</title>
+    <title>sellIndex</title>
     <script src="~/js_css/jquery-1.7.js"></script>
     <script src="~/js_css/jquery.tmpl.js"></script>
     <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
@@ -16,15 +16,18 @@
 </head>
 <body>
     <div>
-        <div class="row">
+        <div class="">
             <table id="listTB" class="table table-bordered">
                 <tr>
                     <th>编号</th>
-                    <th>商品编号</th>
                     <th>商品名称</th>
+                    <th>商品售价</th>
+                    <th>商品进价</th>
                     <th>数量</th>
                     <th>时间</th>
-                   
+                    <th>销售额</th>
+                    <th>利润</th>
+
                 </tr>
             </table>
             <div class="pagebox" style="height:30px;" id="box"></div>
@@ -34,10 +37,13 @@
                 {{each  Data}}
                 <tr>
                     <td>${sell.SellId}</td>
-                    <td>${sell.GoodsId}</td>
                     <td>${sell.Goods.GoodsName}</td>
+                    <td>${sell.Goods.SellPrice}</td>
+                    <td>${sell.Goods.EnterPrice}</td>
                     <td>${sell.SellCount}</td>
                     <td class="time">${sell.CreateData}</td>
+                    <td>${sell.Goods.SellPrice*sell.SellCount}</td>
+                    <td>${sell.Goods.SellPrice*sell.SellCount-sell.Goods.EnterPrice*sell.SellCount}</td>
 
                 </tr>
                 {{/each}}
@@ -53,11 +59,39 @@
                     dataType: "json",
                     success: function (result) {
                         $("#scrID").tmpl(result).appendTo("#listTB");
-                        alert($("table  .time").text());
+                        for (var i = 0; i < $("table tr").index(); i++) {
+                            $("table .time").eq(i).text(formatDate($("table .time").eq(i).text()))
+                        }
+                        //formatDate($("table  .time").text())
+                        //alert($("table  .time").text());
+                        //$("table .time").eq(0).text(formatDate($("table .time").eq(0).text()))
+                        //alert($("table .time").eq(0).text());
                     }
                 })
-                function (a) {
-                    var a = "";
+                //处理JSON 日期格式
+                function formatDate(val, formatType) {
+                    if (val == undefined) {
+                        return '';
+                    }
+                    var reg = /^\/Date\(\d+\)\/$/;
+                    if (!reg.test(val)) return '';//格式不正确 ，返回空
+                    var strDate = val.substr(1, val.length - 2);
+                    var obj = eval('(' + "{ date :new " + strDate + "}" + ')')
+                    var date = obj.date;
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+                    var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                    var datetime = year + '-' + month + '-' + day;
+
+                    if (formatType == 'yyyy-MM-dd') {
+                        return datetime;
+                    } else if (formatType == 'yyyy-MM-dd HH:mm:ss') {
+                        var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                        var seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        return datetime + ' ' + hour + ':' + minute + ':' + seconds;
+                    }
+                    return datetime;
                 }
             })
         </script>
