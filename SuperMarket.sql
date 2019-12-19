@@ -147,7 +147,7 @@ insert into sell values(2018,5,default)
 select * from sell
 
 
-
+/*≤È—Ø*/
 select * from role
 select * from employee
 select * from GoodsType
