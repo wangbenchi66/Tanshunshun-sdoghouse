@@ -13,10 +13,12 @@
     <script src="~/js_css/Echarts.js"></script>
 </head>
 <body>
-    <div>
-        <div id="main" style="width: 50%; height: 400px; float: left; background-color:bisque" class="col-md-8"></div>
-        <div id="main2" style="width: 50%; height: 400px; float: left; background-color:bisque" class="col-md-8"></div>
+    <div class="layui-fluid">
+        <div id="main" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
+        <div id="main2" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
     </div>
+
+
     <script>
         $(function () {
             //排名前五分析图
@@ -92,7 +94,7 @@
                         yAxis: {
                             type: 'category',
                             //data: ['巴西', '印尼', '美国', '印度']
-                            data: [json[0].name, json[1].name, json[2].name, json[3].name, json[4].name ]
+                            data: [json[0].name, json[1].name, json[2].name, json[3].name, json[4].name]
                         },
                         series: [
                             {
