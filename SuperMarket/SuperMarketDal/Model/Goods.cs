@@ -27,7 +27,10 @@ namespace SuperMarketDal
         [Column(TypeName = "money")]
         public decimal? EnterPrice { get; set; }
         public string GoodsImg { get; set; }
-
+        /// <summary>
+        /// ÉÌÆ·×´Ì¬
+        /// </summary>
+        public int GoodsState { get; set; }
         public virtual GoodsType GoodsType { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
