@@ -26,5 +26,19 @@ namespace SuperMarketDal
             db.sell.Add(sell);
             return db.SaveChanges();
         }
+
+        public List<ModelCount> sel()
+        {
+            List<ModelCount> list = (from S in db.sell
+                                     join G in db.Goods
+                                     on S.GoodsId equals G.GoodsId
+                                     select new ModelCount
+                                     {
+                                         sell=S,
+                                         Goods = G,
+                                     }).ToList();
+            //List<ModelCount> list = db.Database.SqlQuery<ModelCount>(sql).ToList();
+            return list;
+        }
     }
 }

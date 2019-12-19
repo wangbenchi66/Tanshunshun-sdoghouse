@@ -8,11 +8,11 @@ namespace SuperMarketDal
 
     public partial class Goods
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Goods()
-        {
-            sell = new HashSet<sell>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Goods()
+        //{
+        //    sell = new HashSet<sell>();
+        //}
 
         public int GoodsId { get; set; }
 
@@ -29,7 +29,7 @@ namespace SuperMarketDal
 
         public virtual GoodsType GoodsType { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sell> sell { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      //  public virtual ICollection<sell> sell { get; set; }
     }
 }

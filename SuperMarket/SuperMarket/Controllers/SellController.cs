@@ -17,7 +17,8 @@ namespace SuperMarket.Controllers
         {
             JsonResult json = new JsonResult();
             sellDal dal = new sellDal();
-            List<sell> list = dal.List();
+           // List<sell> list = dal.List();
+            List<ModelCount> list = dal.sel();
             //var cc = from ss in list
             //         select new
             //         {
@@ -28,8 +29,11 @@ namespace SuperMarket.Controllers
             //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             //    Formatting = Formatting.None
             //};
+            
+
             json.Data = new { Data = list };
             json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            
             return json;
         }
     }

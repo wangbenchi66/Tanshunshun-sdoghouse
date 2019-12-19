@@ -21,8 +21,9 @@
                 <tr>
                     <th>编号</th>
                     <th>商品编号</th>
+                    <th>商品名称</th>
                     <th>数量</th>
-                    @*<th>时间</th>*@
+                    <th>时间</th>
                    
                 </tr>
             </table>
@@ -32,11 +33,12 @@
 
                 {{each  Data}}
                 <tr>
-                    <td>${SellId}</td>
-                    <td>${GoodsId}</td>
-                    <td>${SellCount}</td>
-                    @*<td>${CreateData}</td>*@
-                   
+                    <td>${sell.SellId}</td>
+                    <td>${sell.GoodsId}</td>
+                    <td>${sell.Goods.GoodsName}</td>
+                    <td>${sell.SellCount}</td>
+                    <td class="time">${sell.CreateData}</td>
+
                 </tr>
                 {{/each}}
 
@@ -51,8 +53,12 @@
                     dataType: "json",
                     success: function (result) {
                         $("#scrID").tmpl(result).appendTo("#listTB");
+                        alert($("table  .time").text());
                     }
                 })
+                function (a) {
+                    var a = "";
+                }
             })
         </script>
     </div>

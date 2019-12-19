@@ -28,15 +28,15 @@ namespace SuperMarketDal
                 .Property(e => e.EnterPrice)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Goods>()
-                .HasMany(e => e.sell)
-                .WithRequired(e => e.Goods)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Goods>()
+            //    .HasMany(e => e.sell)
+            //    .WithRequired(e => e.Goods)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<GoodsType>()
-                .HasMany(e => e.Goods)
-                .WithRequired(e => e.GoodsType)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<GoodsType>()
+            //    .HasMany(e => e.Goods)
+            //    .WithRequired(e => e.GoodsType)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }
