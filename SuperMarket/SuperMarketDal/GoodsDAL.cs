@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SuperMarketDal
 {
-   public  class GoodsDAL
+    public class GoodsDAL
     {
+
         public static List<ModelCount> select()
         {
             SuperMarketDB db = new SuperMarketDB();
@@ -20,6 +21,29 @@ namespace SuperMarketDal
                                          GoodsType = aa,
                                      }).ToList();
             return list;
+        }
+        /// <summary>
+        /// 查询列表
+        /// </summary>
+        /// <returns></returns>
+        public static List<GoodsType> GoodsTypeList()
+        {
+            SuperMarketDB db = new SuperMarketDB();
+            string sql = @"	select * from GoodsType";
+            List<GoodsType> list = db.Database.SqlQuery<GoodsType>(sql).ToList();
+            return list;
+        }
+        /// <summary>
+        /// 添加商品
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <returns></returns>
+        public static int GoodsInsert(Goods goods)
+        {
+            SuperMarketDB db = new SuperMarketDB();
+            string sql = string.Format(@"insert into Goods values('{0}',{1},{2},{3},'{4}')", goods.GoodsName, goods.GoodsTypeId, goods.SellPrice, goods.EnterPrice, goods.GoodsImg);
+            int result = (int)db.Database.ExecuteSqlCommand(sql);
+            return result;
         }
     }
 }

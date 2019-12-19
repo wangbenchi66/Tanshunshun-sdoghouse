@@ -9,14 +9,44 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>GoodsIndex</title>
-    <script src="~/js_css/jquery-1.7.js"></script>
+    @*<script src="~/js_css/jquery-1.7.js"></script>*@
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/js_css/jquery.tmpl.js"></script>
-    <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-    <link href="~/js_css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <div class="row">
+        <div class="">
+
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <input id="Text1" type="text" class="form-control" placeholder="商品名称" />
+                                <select id="Select1" class="form-control" required>
+                                    <option value="0">请选择</option>
+                                </select>
+                                <input id="Text2" type="text" class="form-control" placeholder="进价" />
+                                <input id="Text3" type="text" class="form-control" placeholder="销售价" />
+                                <input id="File1" type="file" />
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="but">提交更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
             <table id="listTB" class="table table-bordered">
                 <tr>
                     <th>编号</th>
@@ -28,7 +58,6 @@
             <div class="pagebox" style="height:30px;" id="box"></div>
 
             <script id="scrID" type="text/x-jquery-tmpl">
-
                 {{each  Data}}
                 <tr>
                     <td>${GoodsId}</td>
@@ -41,9 +70,57 @@
 
             </script>
         </div>
+
     </div>
     <script>
         $(function () {
+            //渲染下拉框
+            $.ajax({
+                url: "/Goods/GoodsTypeList",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    for (var i = 0; i < result.length; i++) {
+                        //alert(result[i].GoodsTypeName);
+                        var str = "  <option value=" + result[i].GoodsTypeId + ">" + result[i].GoodsTypeName + "</option>"
+                        $("#Select1").append(str);
+                    }
+                }
+            })
+
+            $("#but").click(function () {
+                //获取
+                var name = $("#Text1").val();
+                var jinjia = $("#Text2").val();
+                var shoujia = $("#Text3").val();
+                var img = $("#File1").val();
+                var Select = $("#Select1").val();
+                $.ajax({
+                    url: "/Goods/GoodsInsert",
+                    data: {
+                        name: name,
+                        jinjia: jinjia,
+                        shoujia: shoujia,
+                        img: img,
+                        Select: Select
+                    },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result>0) {
+                            alert("成功");
+                        } else {
+                            alert(result);
+                        }
+                    }
+                })
+
+            })
+
+
+            //渲染数据
             $.ajax({
                 url: "/Goods/select",
                 data: {},
@@ -59,8 +136,9 @@
                     for (var i = 0; i < json["Data"].length; i++) {
                         //alert(json["Data"][i]["GoodsType"].GoodsTypeName);
                         $("#listTB").append("<tr><td>" + json["Data"][i]["Goods"].GoodsId + "</td><td>"
-                            + json["Data"][i]["GoodsType"].GoodsTypeName + "</td><td>"
+
                             + json["Data"][i]["Goods"].GoodsName + "</td><td>"
+                            + json["Data"][i]["GoodsType"].GoodsTypeName + "</td><td>"
                             + json["Data"][i]["Goods"].SellPrice + "</td></tr>");
                     }
                 }
