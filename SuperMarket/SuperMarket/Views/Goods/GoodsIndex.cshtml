@@ -1,8 +1,7 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/_LayoutPage.cshtml";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -23,7 +22,7 @@
             height: 150px;
         }
 
-        td {
+        tr,td {
             vertical-align: middle !important
         }
     </style>
@@ -31,8 +30,16 @@
 <body>
     <div>
         <div class="" style="margin-left:30px;margin-top:30px">
-            <input id="Text1" type="text" /><input id="Button1" type="button" value="查询" />
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加商品</button>
+            <div style="margin-left:70%">
+                <div class="layui-input-inline">
+                    <input id="Text1" type="text" class="layui-input" placeholder="请输入商品名称" />
+                </div>
+
+                <button class="layui-btn" id="Button1" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+
+                <button class="layui-btn" data-toggle="modal" data-target="#myModal">添加商品</button>
+            </div>
+
             <!-- 模态框（Modal） -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -66,8 +73,8 @@
                     <th>商品类别</th>
                     <th>图片</th>
                     <th>商品名</th>
-                    <th>销售价格</th>
                     <th>进货价格</th>
+                    <th>销售价格</th>
                     <th>当前商品状态</th>
                     <th>操作</th>
                 </tr>
@@ -90,13 +97,13 @@
                     <td>
                         {{if Goods.GoodsState==1}}
 
-                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-warning btn-lg">下架</a>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="layui-btn layui-btn-sm"><i class="layui-icon"></i>下架</a>
                         {{/if}}
                         {{if Goods.GoodsState==2}}
-                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-success btn-lg">上架</a>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="layui-btn layui-btn-sm"><i class="layui-icon"></i>上架</a>
                         {{/if}}
-                        <a href="#" id="update" GoodsId='${Goods.GoodsId}' GoodsTypeName='${GoodsType.GoodsTypeId}' GoodsImg='${Goods.GoodsImg}' GoodsName='${Goods.GoodsName}'
-                           SellPrice='${Goods.SellPrice}' EnterPrice='${Goods.EnterPrice}' GoodsState='${Goods.GoodsState}'>修改</a>
+                        <a href="#" id="update" class="layui-btn layui-btn-primary layui-btn-sm" GoodsId='${Goods.GoodsId}' GoodsTypeName='${GoodsType.GoodsTypeId}' GoodsImg='${Goods.GoodsImg}' GoodsName='${Goods.GoodsName}'
+                           SellPrice='${Goods.SellPrice}' EnterPrice='${Goods.EnterPrice}' GoodsState='${Goods.GoodsState}'><i class="layui-icon"></i>修改</a>
                     </td>
                 </tr>
                 {{/each}}
@@ -183,7 +190,7 @@
                         EnterPrice: upEnterPrice,
                         SellPrice: upSellPrice,
                         //上下架选中处理
-                        GoodsState:Radio,
+                        GoodsState: Radio,
                         GoodsImg: $("#upimg").attr("src"),
                     },
                     success: function (result) {
