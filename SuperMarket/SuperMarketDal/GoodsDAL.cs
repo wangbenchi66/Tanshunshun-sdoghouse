@@ -41,7 +41,7 @@ namespace SuperMarketDal
         public static int GoodsInsert(Goods goods)
         {
             SuperMarketDB db = new SuperMarketDB();
-            string sql = string.Format(@"insert into Goods values('{0}',{1},{2},{3},'{4}')", goods.GoodsName, goods.GoodsTypeId, goods.SellPrice, goods.EnterPrice, goods.GoodsImg);
+            string sql = string.Format(@"insert into Goods values('{0}',{1},{2},{3},'{4}',default)", goods.GoodsName, goods.GoodsTypeId, goods.SellPrice, goods.EnterPrice, goods.GoodsImg);
             int result = (int)db.Database.ExecuteSqlCommand(sql);
             return result;
         }
