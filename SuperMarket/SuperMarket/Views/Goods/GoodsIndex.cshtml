@@ -31,7 +31,7 @@
 <body>
     <div>
         <div class="" style="margin-left:30px;margin-top:30px">
-
+            <input id="Text1" type="text" /><input id="Button1" type="button" value="查询" />
             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加商品</button>
             <!-- 模态框（Modal） -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -66,7 +66,8 @@
                     <th>商品类别</th>
                     <th>图片</th>
                     <th>商品名</th>
-                    <th>价格</th>
+                    <th>销售价格</th>
+                    <th>进货价格</th>
                     <th>当前商品状态</th>
                     <th>操作</th>
                 </tr>
@@ -80,31 +81,133 @@
                     <td>${GoodsType.GoodsTypeName}</td>
                     <td><img src='${Goods.GoodsImg}' /></td>
                     <td>${Goods.GoodsName}</td>
+                    <td>${Goods.EnterPrice}</td>
                     <td>${Goods.SellPrice}</td>
                     @*删除需要先删除销售记录*@
                     <td>
                         ${Goods.GoodsState==1?"商品已正常":"商品已售罄"}
                     </td>
-                    {{if Goods.GoodsState==1}}
                     <td>
+                        {{if Goods.GoodsState==1}}
+
                         <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-warning btn-lg">下架</a>
+                        {{/if}}
+                        {{if Goods.GoodsState==2}}
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-success btn-lg">上架</a>
+                        {{/if}}
+                        <a href="#" id="update" GoodsId='${Goods.GoodsId}' GoodsTypeName='${GoodsType.GoodsTypeId}' GoodsImg='${Goods.GoodsImg}' GoodsName='${Goods.GoodsName}'
+                           SellPrice='${Goods.SellPrice}' EnterPrice='${Goods.EnterPrice}' GoodsState='${Goods.GoodsState}'>修改</a>
                     </td>
-                    {{/if}}
-                    {{if Goods.GoodsState==2}}
-                    <td>
-                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-success btn-lg" >上架</a>
-                    </td>
-                    {{/if}}
                 </tr>
                 {{/each}}
 
             </script>
-        </div>
 
+        </div>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">修改</h4>
+                    </div>
+                    <div class="modal-body" id="motai">
+                        <form>
+                            <input id="upId" type="text" class="form-control" placeholder="商品编号" />
+                            <input id="upName" type="text" class="form-control" placeholder="商品名称" />
+                            <select id="upGoodsTypeId" class="form-control" required></select>
+                            <input id="upEnterPrice" type="text" class="form-control" placeholder="进价" />
+                            <input id="upSellPrice" type="text" class="form-control" placeholder="销售价" />
+                            <input id="Radio1" type="radio" name="red" />上架
+                            <input id="Radio2" type="radio" name="red" />下架
+                            <img id="upimg" src="" />
+                            <input id="File2" type="file" />
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" id="UpBut">提交更改</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
     </div>
 
     <script>
         $(function () {
+
+            //修改    数据读取赋值
+            $("#listTB").on("click", "#update", function () {
+                $('#myModa2').modal('show')
+                $("#upId").val($(this).attr("GoodsId"));
+                $('#upId').attr("readonly", "readonly")
+                $("#upName").val($(this).attr("GoodsName"));
+                //商品类别
+                var select = $(this).attr("GoodsTypeName");
+                $("#upGoodsTypeId").val(select);
+                $("#upEnterPrice").val($(this).attr("EnterPrice"));
+                $("#upSellPrice").val($(this).attr("SellPrice"));
+                var GoodsState = $(this).attr("GoodsState");
+                if (GoodsState == 1) {
+                    $("#Radio1").attr("checked", true);
+                } else {
+                    $("#Radio2").attr("checked", true);
+                }
+                var img = $(this).attr("GoodsImg");
+                $("#upimg").attr('src', img);
+            })
+            //执行修改
+            $("#UpBut").click(function () {
+                var Radio;
+                if ($("#Radio1").is(":checked")) {
+                    Radio = 1;
+                }
+                else {
+                    Radio = 2;
+                }
+                var upGoodsTypeId = $("#upGoodsTypeId").val();
+                var upId = $("#upId").val();
+                var upName = $("#upName").val();
+                var upEnterPrice = $("#upEnterPrice").val();
+                var upSellPrice = $("#upSellPrice").val()
+                $.ajax({
+                    url: "/Goods/GoodsUpdate",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        GoodsId: upId,
+                        GoodsName: upName,
+                        //获取下拉框值
+                        GoodsTypeId: upGoodsTypeId,
+                        EnterPrice: upEnterPrice,
+                        SellPrice: upSellPrice,
+                        //上下架选中处理
+                        GoodsState:Radio,
+                        GoodsImg: $("#upimg").attr("src"),
+                    },
+                    success: function (result) {
+                        console.log(result)
+                        if (result > 0) {
+                            layer.msg('已修改成功!', {
+                                icon: 1,
+                                time: 1000
+                            });
+
+                        } else {
+                            layer.msg('请重新尝试修改!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                        $('#myModa2').modal('hide')
+                        select();
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                })
+            })
 
             //下架
             $("#listTB").on("click", "#delete", function () {
@@ -120,7 +223,7 @@
                                 icon: 1,
                                 time: 1000
                             });
-                           
+
                         } else {
                             layer.msg('请重新尝试下架!', {
                                 icon: 2,
@@ -145,7 +248,7 @@
                                 icon: 1,
                                 time: 1000
                             });
-                           
+
                         } else {
                             layer.msg('请重新尝试上架!', {
                                 icon: 2,
@@ -171,6 +274,7 @@
                         //alert(result[i].GoodsTypeName);
                         var str = "  <option value=" + result[i].GoodsTypeId + ">" + result[i].GoodsTypeName + "</option>"
                         $("#Select1").append(str);
+                        $("#upGoodsTypeId").append(str);
                     }
                 }
             })
@@ -210,12 +314,16 @@
                 })
 
             })
+            //搜索
+            $("#Button1").click(function () {
+                select();
+            })
             //读取数据
             function select() {
                 //渲染数据
                 $.ajax({
                     url: "/Goods/select",
-                    data: {},
+                    data: { name: $("#Text1").val() },
                     type: "post",
                     dataType: "json",
                     success: function (result) {

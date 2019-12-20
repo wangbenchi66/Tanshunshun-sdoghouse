@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace SuperMarketDal
 {
     public class GoodsDAL
     {
-
-        public static List<ModelCount> select()
+        public static SuperMarketDB db = new SuperMarketDB();
+        public static List<ModelCount> select(string name = "")
         {
-            SuperMarketDB db = new SuperMarketDB();
             List<ModelCount> list = (from cc in db.Goods
                                      join aa in db.GoodsType
                                      on cc.GoodsTypeId equals aa.GoodsTypeId
@@ -19,7 +19,7 @@ namespace SuperMarketDal
                                      {
                                          Goods = cc,
                                          GoodsType = aa,
-                                     }).ToList();
+                                     }).Where(p => p.Goods.GoodsName.Contains(name)).ToList();
             return list;
         }
         /// <summary>
@@ -28,8 +28,7 @@ namespace SuperMarketDal
         /// <returns></returns>
         public static List<GoodsType> GoodsTypeList()
         {
-            SuperMarketDB db = new SuperMarketDB();
-            string sql = @"	select * from GoodsType";
+            string sql = @"select * from GoodsType";
             List<GoodsType> list = db.Database.SqlQuery<GoodsType>(sql).ToList();
             return list;
         }
@@ -40,7 +39,6 @@ namespace SuperMarketDal
         /// <returns></returns>
         public static int GoodsInsert(Goods goods)
         {
-            SuperMarketDB db = new SuperMarketDB();
             string sql = string.Format(@"insert into Goods values('{0}',{1},{2},{3},'{4}',default)", goods.GoodsName, goods.GoodsTypeId, goods.SellPrice, goods.EnterPrice, goods.GoodsImg);
             int result = (int)db.Database.ExecuteSqlCommand(sql);
             return result;
@@ -52,7 +50,6 @@ namespace SuperMarketDal
         /// <returns></returns>
         public static int GoodsDelete(Goods goods)
         {
-            SuperMarketDB db = new SuperMarketDB();
             string sql = string.Format(@"update Goods set GoodsState=2 where GoodsId={0}", goods.GoodsId);
             int result = (int)db.Database.ExecuteSqlCommand(sql);
             return result;
@@ -65,8 +62,18 @@ namespace SuperMarketDal
         /// <returns></returns>
         public static int GoodsState(Goods goods)
         {
-            SuperMarketDB db = new SuperMarketDB();
             string sql = string.Format(@"update Goods set GoodsState=1 where GoodsId={0}", goods.GoodsId);
+            int result = (int)db.Database.ExecuteSqlCommand(sql);
+            return result;
+        }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <returns></returns>
+        public static int GoodsUpdate(Goods goods)
+        {
+            string sql = string.Format(@"update Goods set GoodsName='{0}',GoodsTypeId={1},SellPrice={2},EnterPrice={3},GoodsImg='{4}',GoodsState={5} where GoodsId={6}", goods.GoodsName, goods.GoodsTypeId, goods.SellPrice, goods.EnterPrice, goods.GoodsImg, goods.GoodsState, goods.GoodsId);
             int result = (int)db.Database.ExecuteSqlCommand(sql);
             return result;
         }

@@ -22,9 +22,9 @@ namespace SuperMarket.Controllers
         //             select new Fangtai{ }).ToList();
         //}
         [HttpPost]
-        public JsonResult select()
+        public JsonResult select(string name="")
         {
-            List<ModelCount> list = GoodsDAL.select();
+            List<ModelCount> list = GoodsDAL.select(name);
             JsonResult json = new JsonResult();
             //var cc = from ss in list
             //         select new
@@ -117,6 +117,28 @@ namespace SuperMarket.Controllers
                 GoodsId = id
             };
             int result = GoodsDAL.GoodsState(goods);
+            if (result > 0)
+            {
+                num = result;
+            }
+            return Json(num);
+        }
+
+        [HttpPost]
+        public JsonResult GoodsUpdate(string GoodsName, int GoodsTypeId,decimal SellPrice,decimal EnterPrice,string GoodsImg,int GoodsState,int GoodsId)
+        {
+            int num = 0;
+            Goods goods = new Goods()
+            {
+                GoodsName = GoodsName,
+                GoodsTypeId = GoodsTypeId,
+                SellPrice = SellPrice,
+                EnterPrice = EnterPrice,
+                GoodsImg = GoodsImg,
+                GoodsState = GoodsState,
+                GoodsId = GoodsId,
+            };
+            int result = GoodsDAL.GoodsUpdate(goods);
             if (result > 0)
             {
                 num = result;
