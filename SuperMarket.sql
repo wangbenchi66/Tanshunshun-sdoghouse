@@ -28,7 +28,7 @@ if exists(select * from sys.tables where name='role')
 drop table role
 go
 
-create table role --角色表
+create table role --角色表回复
 (
 	RoleId int primary key identity(101,1),
 	RoleName nvarchar(200) not null
@@ -103,6 +103,7 @@ insert into Goods values('电动牙刷',1003,199,150,'/images/Food/yashua.jpg',defau
 insert into Goods values('洗手机',1003,300,235,'/images/Food/xishouji.jpg',default)
 insert into Goods values('牙膏',1003,30,21,'/images/Food/yagao.jpg',default)
 insert into Goods values('剃须刀',1003,199,170,'/images/Food/guhudao.jpg',default)
+insert into Goods values('便携式剃须刀',1003,79,70,'/images/Food/bianxie.jpg',default)
 
 insert into Goods values('利群',1004,14,13,'/images/Food/liqun.jpg',default)
 insert into Goods values('中华',1004,60,58,'/images/Food/zhonghua.jpg',default)
