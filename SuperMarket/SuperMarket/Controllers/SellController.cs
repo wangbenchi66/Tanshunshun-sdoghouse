@@ -12,13 +12,13 @@ namespace SuperMarket.Controllers
         {
             return View();
         }
-
-        public JsonResult SellList()
+        [HttpPost]
+        public JsonResult SellList(string name="")
         {
             JsonResult json = new JsonResult();
             sellDal dal = new sellDal();
            // List<sell> list = dal.List();
-            List<ModelCount> list = dal.sel();
+            List<ModelCount> list = dal.sel(name);
             //var cc = from ss in list
             //         select new
             //         {

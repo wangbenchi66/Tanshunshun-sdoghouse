@@ -27,7 +27,7 @@ namespace SuperMarketDal
             return db.SaveChanges();
         }
 
-        public List<ModelCount> sel()
+        public List<ModelCount> sel(string name="")
         {
             List<ModelCount> list = (from S in db.sell
                                      join G in db.Goods
@@ -36,7 +36,7 @@ namespace SuperMarketDal
                                      {
                                          sell=S,
                                          Goods = G,
-                                     }).ToList();
+                                     }).Where(o => o.Goods.GoodsName.Contains(name)).ToList();
             //List<ModelCount> list = db.Database.SqlQuery<ModelCount>(sql).ToList();
             return list;
         }

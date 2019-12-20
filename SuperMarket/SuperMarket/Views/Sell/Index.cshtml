@@ -16,6 +16,10 @@
 </head>
 <body>
     <div>
+        <div>
+            <input id="GoodsName" type="text"  />
+            <input id="btn" type="button" value="查询" />
+        </div>
         <div class="">
             <table id="listTB" class="table table-bordered">
                 <tr>
@@ -52,21 +56,24 @@
         </div>
         <script>
             $(function () {
-                $.ajax({
-                    url: "/Sell/SellList",
-                    data: {},
-                    type: "get",
-                    dataType: "json",
-                    success: function (result) {
-                        $("#scrID").tmpl(result).appendTo("#listTB");
-                        for (var i = 0; i < $("table tr").index(); i++) {
-                            $("table .time").eq(i).text(formatDate($("table .time").eq(i).text()))
+                sel();
+                function sel() {
+                    $.ajax({
+                        url: "/Sell/SellList",
+                        data: { name: $("#GoodsName").val() },
+                        type: "post",
+                        dataType: "json",
+                        success: function (result) {
+                            $("#listTB tr:gt(0)").remove();
+                            $("#scrID").tmpl(result).appendTo("#listTB");
+                            for (var i = 0; i < $("table tr").index(); i++) {
+                                $("table .time").eq(i).text(formatDate($("table .time").eq(i).text()))
+                            }
                         }
-                        //formatDate($("table  .time").text())
-                        //alert($("table  .time").text());
-                        //$("table .time").eq(0).text(formatDate($("table .time").eq(0).text()))
-                        //alert($("table .time").eq(0).text());
-                    }
+                    })
+                }
+                $("#btn").click(function () {
+                    sel();
                 })
                 //处理JSON 日期格式
                 function formatDate(val, formatType) {
