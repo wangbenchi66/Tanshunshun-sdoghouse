@@ -40,3 +40,16 @@ C:\Users\TSM\Desktop\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.
 C:\Users\TSM\Desktop\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
 C:\Users\TSM\Desktop\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb
 C:\Users\TSM\Desktop\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csprojAssemblyReference.cache
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.dll.config
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\SuperMarketDal.pdb
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.SqlServer.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\log4net.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.SqlServer.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\log4net.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CoreCompileInputs.cache
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb

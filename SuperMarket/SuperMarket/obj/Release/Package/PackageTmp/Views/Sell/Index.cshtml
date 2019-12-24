@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>sellIndex</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+    <script src="~/js_css/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="~/js_css/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div style="text-align:center">
+            <input id="GoodsName" type="text" class="form-inline"  placeholder="请输入商品名"/>
+            <input id="btn" type="button" value="查询" class="btn btn-default"/>
+        </div>
+        <div class="">
+            <table id="listTB" class="table table-bordered">
+                <tr>
+                    <th>编号</th>
+                    <th>商品名称</th>
+                    <th>商品售价</th>
+                    <th>商品进价</th>
+                    <th>数量</th>
+                    <th>时间</th>
+                    <th>销售额</th>
+                    <th>利润</th>
+                </tr>
+            </table>
+            <div class="pagebox" style="height:30px;" id="box"></div>
+
+            <script id="scrID" type="text/x-jquery-tmpl">
+
+                {{each  Data}}
+                <tr>
+                    <td>${sell.SellId}</td>
+                    <td>${sell.Goods.GoodsName}</td>
+                    <td>${sell.Goods.SellPrice}</td>
+                    <td>${sell.Goods.EnterPrice}</td>
+                    <td>${sell.SellCount}</td>
+                    <td class="time">${sell.CreateData}</td>
+                    <td>${sell.Goods.SellPrice*sell.SellCount}</td>
+                    <td>${sell.Goods.SellPrice*sell.SellCount-sell.Goods.EnterPrice*sell.SellCount}</td>
+
+                </tr>
+                {{/each}}
+
+            </script>
+        </div>
+        <script>
+            $(function () {
+                sel();
+                function sel() {
+                    $.ajax({
+                        url: "/Sell/SellList",
+                        data: { name: $("#GoodsName").val() },
+                        type: "post",
+                        dataType: "json",
+                        success: function (result) {
+                            $("#listTB tr:gt(0)").remove();
+                            $("#scrID").tmpl(result).appendTo("#listTB");
+                            for (var i = 0; i < $("table tr").index(); i++) {
+                                $("table .time").eq(i).text(formatDate($("table .time").eq(i).text()))
+                            }
+                        }
+                    })
+                }
+                $("#btn").click(function () {
+                    sel();
+                })
+                //处理JSON 日期格式
+                function formatDate(val, formatType) {
+                    if (val == undefined) {
+                        return '';
+                    }
+                    var reg = /^\/Date\(\d+\)\/$/;
+                    if (!reg.test(val)) return '';//格式不正确 ，返回空
+                    var strDate = val.substr(1, val.length - 2);
+                    var obj = eval('(' + "{ date :new " + strDate + "}" + ')')
+                    var date = obj.date;
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+                    var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                    var datetime = year + '-' + month + '-' + day;
+
+                    if (formatType == 'yyyy-MM-dd') {
+                        return datetime;
+                    } else if (formatType == 'yyyy-MM-dd HH:mm:ss') {
+                        var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                        var seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        return datetime + ' ' + hour + ':' + minute + ':' + seconds;
+                    }
+                    return datetime;
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

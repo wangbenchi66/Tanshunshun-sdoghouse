@@ -11,101 +11,295 @@
     <title>Index</title>
     <script src="~/js_css/jquery-1.7.js"></script>
     <script src="~/js_css/Echarts.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+    <style>
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        tr, td {
+            vertical-align: middle !important
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <select id="Select1">
+            <option value="1">销售排名分析图</option>
+            <option value="2">销售商品TOP5统计</option>
+            <option value="3">销售商品列表统计</option>
+        </select>
+    </div>
     <div class="layui-fluid">
-        <div id="main" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
-        <div id="main2" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
+        <div id="main" class="none" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
+        <div id="main2" class="none" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
+        <div id="main3" class="none" style="width: 50%; height: 400px; float: left; " class="col-md-8"></div>
     </div>
 
+    <div id="Echaet1" class="divtable">
+        <table id="listTB" class="table table-hover" style="font-size:20px">
+            <tr>
+                <th>编号</th>
+                <th>图片</th>
+                <th>商品名</th>
+                <th>进货价格</th>
+                <th>销售价格</th>
+                <th>当前商品状态</th>
+            </tr>
+        </table>
+        <div class="pagebox" style="height:30px;" id="box"></div>
 
+        <script id="scrID" type="text/x-jquery-tmpl">
+            {{each  Data}}
+            <tr>
+                <td>${GoodsId}</td>
+                <td><img src='${GoodsImg}' /></td>
+                <td>${GoodsName}</td>
+                <td>${EnterPrice}</td>
+                <td>${SellPrice}</td>
+                @*删除需要先删除销售记录*@
+                <td>
+                    ${GoodsState==1?"商品正常":"商品已售罄"}
+                </td>
+            </tr>
+            {{/each}}
+
+        </script>
+    </div>
+    <div id="Echaet2" class="divtable">
+        <table id="listTB2" class="table table-bordered">
+            <tr>
+                <th>编号</th>
+                <th>商品名称</th>
+                <th>商品售价</th>
+                <th>商品进价</th>
+                <th>数量</th>
+                <th>时间</th>
+                <th>销售额</th>
+                <th>利润</th>
+            </tr>
+        </table>
+        <div class="pagebox" style="height:30px;" id="box"></div>
+
+        <script id="scrID2" type="text/x-jquery-tmpl">
+
+            {{each  Data}}
+            <tr>
+                <td>${sell.SellId}</td>
+                <td>${sell.Goods.GoodsName}</td>
+                <td>${sell.Goods.SellPrice}</td>
+                <td>${sell.Goods.EnterPrice}</td>
+                <td>${sell.SellCount}</td>
+                <td class="time">${sell.CreateData}</td>
+                <td>${sell.Goods.SellPrice*sell.SellCount}</td>
+                <td>${sell.Goods.SellPrice*sell.SellCount-sell.Goods.EnterPrice*sell.SellCount}</td>
+
+            </tr>
+            {{/each}}
+
+        </script>
+    </div>
     <script>
         $(function () {
-            //排名前五分析图
             var myChart = echarts.init(document.getElementById('main'));
-            $.ajax({
-                url: "/Echart/EcSellAnalyze",
-                data: {},
-                type: "post",
-                dataType: "json",
-                success: function (json) {
-                    data = json
-                    myChart.setOption({
-                        title: {
-                            text: '超市各类别数量分析',
-                            //subtext: '共计人数： ' + $("#lab_headcount").text(),
-                            x: 'center'
-                        },
-                        tooltip: {
-                            trigger: 'item',
-                            formatter: "{a} <br/>{b} : {c} ({d}%)"
-                        },
-                        legend: {
-                            orient: 'vertical',
-                            left: 'left',
-                            data: data,
-                        },
-                        series: [
-                            {
-                                name: '类别',
-                                type: 'pie',
-                                radius: '55%',
-                                data: data,
-                            }
-                        ],
-
-                    })
-                }
-            })
             var myChart2 = echarts.init(document.getElementById('main2'));
-            $.ajax({
-                url: "/Echart/EcSellTOP",
-                data: {},
-                type: "post",
-                dataType: "json",
-                success: function (json) {
-                    data = json
-                    console.log(json);
-                    myChart2.setOption({
+            var myChart3 = echarts.init(document.getElementById('main3'));
+            Echaer1();
+            $(".divtable").hide();
+            $("#Select1").change(function () {
+                var id = $(this).children('option:selected').val();
+                //排名前五分析图
+                if (id == 1) {
+                    Echaer1();
 
-                        title: {
-                            text: '销售商品统计',
-                            subtext: '数据来自数据库'
-                        },
-                        tooltip: {
-                            trigger: 'axis',
-                            axisPointer: {
-                                type: 'shadow'
-                            }
-                        },
-                        //legend: {
-                        //    data: ['2011年']
-                        //},
-                        grid: {
-                            left: '3%',
-                            right: '4%',
-                            bottom: '3%',
-                            containLabel: true
-                        },
-                        xAxis: {
-                            type: 'value',
-                            boundaryGap: [0, 0.01]
-                        },
-                        yAxis: {
-                            type: 'category',
-                            //data: ['巴西', '印尼', '美国', '印度']
-                            data: [json[0].name, json[1].name, json[2].name, json[3].name, json[4].name]
-                        },
-                        series: [
-                            {
-                                name: '2011年',
-                                type: 'bar',
-                                data: data
-                            }
-                        ]
-                    })
+                } else if (id == 2) {
+                    Echaer2();
+                } else {
+                    Echaer3();
                 }
             })
+            function Echaer1() {
+                $.ajax({
+                    url: "/Echart/EcSellAnalyze",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (json) {
+                        $(".none").hide();
+                        $("#main").show();
+                        data = json
+                        myChart.setOption({
+                            title: {
+                                text: '超市各类别数量分析',
+                                //subtext: '共计人数： ' + $("#lab_headcount").text(),
+                                x: 'center'
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                left: 'left',
+                                data: data,
+                            },
+                            series: [
+                                {
+                                    name: '类别',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    data: data,
+                                }
+                            ],
+
+                        })
+                    }
+                })
+            }
+            function Echaer2() {
+                $.ajax({
+                    url: "/Echart/EcSellTOP",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (json) {
+                        $(".none").hide();
+                        $("#main2").show();
+                        console.log(json)
+                        var arr = [];
+                        for (var i = 0; i < json.length; i++) {
+                            arr[i] = json[i].name;
+                        }
+                        myChart2.setOption({
+
+                            title: {
+                                text: '销售商品统计',
+                                subtext: '数据来自数据库'
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            },
+                            legend: {
+                                data: data
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: {
+                                type: 'value',
+                                boundaryGap: [0, 0.01]
+                            },
+                            yAxis: {
+                                type: 'category',
+                                //data: ['巴西', '印尼', '美国', '印度']
+                                data: arr
+                            },
+                            series: [
+                                {
+                                    name: '商品销量总数',
+                                    type: 'bar',
+                                    data: json
+                                }
+                            ]
+                        })
+                    }
+                })
+            }
+            function Echaer3() {
+                $.ajax({
+                    url: "/Echart/EcSellList",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (json) {
+                        $(".none").hide();
+                        $("#main3").show();
+                        var arr = [];
+                        for (var i = 0; i < json.length; i++) {
+                            arr[i] = json[i].name;
+                        }
+                        myChart3.setOption({
+
+                            title: {
+                                text: '商品销售列表统计'
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            legend: {
+                                data: json
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            //toolbox: {
+                            //    feature: {
+                            //        saveAsImage: {}
+                            //    }
+                            //},
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,
+                                data: arr
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series:
+                            {
+                                name: '商品名称',
+                                type: 'line',
+                                stack: '总量',
+                                data: json
+                            }
+                        })
+                    }
+                })
+            }
+            myChart.on('click', function (param) {
+                //这里根据param填写你的跳转逻辑
+                console.log(param.name);
+                $("#Echaet1").show();
+                //渲染数据
+                $.ajax({
+                    url: "/Echart/GoodsList",
+                    data: { name: param.name },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#listTB tr:gt(0)").remove();
+                        $("#scrID").tmpl(result).appendTo("#listTB");
+                    }
+                })
+            });
+
+            myChart2.on('click', function (param) {
+                //这里根据param填写你的跳转逻辑
+                console.log(param.name);
+                $(".divtable").hide();
+                $("#Echaet2").show();
+                //渲染数据
+                $.ajax({
+                    url: "/Echart/sellList",
+                    data: { name: param.name },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#listTB2 tr:gt(0)").remove();
+                        $("#scrID2").tmpl(result).appendTo("#listTB2");
+                    }
+                })
+            });
         })
     </script>
 </body>

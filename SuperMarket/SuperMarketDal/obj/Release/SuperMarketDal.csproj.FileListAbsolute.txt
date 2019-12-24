@@ -1,0 +1,14 @@
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\SuperMarketDal.dll.config
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\SuperMarketDal.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\SuperMarketDal.pdb
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\EntityFramework.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\EntityFramework.SqlServer.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\log4net.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\EntityFramework.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\EntityFramework.SqlServer.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Release\log4net.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Release\SuperMarketDal.csprojAssemblyReference.cache
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Release\SuperMarketDal.csproj.CoreCompileInputs.cache
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Release\SuperMarketDal.csproj.CopyComplete
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Release\SuperMarketDal.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Release\SuperMarketDal.pdb

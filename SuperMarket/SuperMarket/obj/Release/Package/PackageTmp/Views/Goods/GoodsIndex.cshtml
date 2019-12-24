@@ -1,0 +1,245 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GoodsIndex</title>
+    @*<script src="~/js_css/jquery-1.7.js"></script>*@
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+
+    <script src="~/X-admin-2.2/lib/layui/layui.all.js"></script>
+    <script src="~/X-admin-2.2/lib/layui/layui.js"></script>
+    <style>
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        td {
+            vertical-align: middle !important
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="" style="margin-left:30px;margin-top:30px">
+
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加商品</button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <input id="Text1" type="text" class="form-control" placeholder="商品名称" />
+                                <select id="Select1" class="form-control" required>
+                                    <option value="0">请选择</option>
+                                </select>
+                                <input id="Text2" type="text" class="form-control" placeholder="进价" />
+                                <input id="Text3" type="text" class="form-control" placeholder="销售价" />
+                                <input id="File1" type="file" />
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="but">提交更改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+            <table id="listTB" class="table table-hover" style="font-size:20px">
+                <tr>
+                    <th>编号</th>
+                    <th>商品类别</th>
+                    <th>图片</th>
+                    <th>商品名</th>
+                    <th>价格</th>
+                    <th>当前商品状态</th>
+                    <th>操作</th>
+                </tr>
+            </table>
+            <div class="pagebox" style="height:30px;" id="box"></div>
+
+            <script id="scrID" type="text/x-jquery-tmpl">
+                {{each  Data}}
+                <tr>
+                    <td>${Goods.GoodsId}</td>
+                    <td>${GoodsType.GoodsTypeName}</td>
+                    <td><img src='${Goods.GoodsImg}' /></td>
+                    <td>${Goods.GoodsName}</td>
+                    <td>${Goods.SellPrice}</td>
+                    @*删除需要先删除销售记录*@
+                    <td>
+                        ${Goods.GoodsState==1?"商品已正常":"商品已售罄"}
+                    </td>
+                    {{if Goods.GoodsState==1}}
+                    <td>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-warning btn-lg">下架</a>
+                    </td>
+                    {{/if}}
+                    {{if Goods.GoodsState==2}}
+                    <td>
+                        <a href="#" id="delete" GoodsId='${Goods.GoodsId}' class="btn btn-success btn-lg" >上架</a>
+                    </td>
+                    {{/if}}
+                </tr>
+                {{/each}}
+
+            </script>
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+
+            //下架
+            $("#listTB").on("click", "#delete", function () {
+                var id = $(this).attr("GoodsId");
+                $.ajax({
+                    url: "/Goods/GoodsDelete",
+                    data: { id: id },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result > 0) {
+                            layer.msg('已下架成功!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                           
+                        } else {
+                            layer.msg('请重新尝试下架!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                        select();
+                    }
+                })
+            })
+            //上架
+            $("#listTB").on("click", "#delete", function () {
+                var id = $(this).attr("GoodsId");
+                $.ajax({
+                    url: "/Goods/GoodsState",
+                    data: { id: id },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result > 0) {
+                            layer.msg('已上架!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                           
+                        } else {
+                            layer.msg('请重新尝试上架!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                        select();
+                    }
+                })
+            })
+
+            //调用查询渲染数据
+            select();
+            //渲染下拉框
+            $.ajax({
+                url: "/Goods/GoodsTypeList",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    for (var i = 0; i < result.length; i++) {
+                        //alert(result[i].GoodsTypeName);
+                        var str = "  <option value=" + result[i].GoodsTypeId + ">" + result[i].GoodsTypeName + "</option>"
+                        $("#Select1").append(str);
+                    }
+                }
+            })
+
+            ///添加操作
+            $("#but").click(function () {
+
+                //获取
+                var name = $("#Text1").val();
+                var jinjia = $("#Text2").val();
+                var shoujia = $("#Text3").val();
+                var img = $("#File1").val();
+                var Select = $("#Select1").val();
+                $.ajax({
+                    url: "/Goods/GoodsInsert",
+                    data: {
+                        name: name,
+                        jinjia: jinjia,
+                        shoujia: shoujia,
+                        img: img,
+                        Select: Select
+                    },
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        if (result > 0) {
+                            layer.msg('已填加!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                            $('#myModal').modal('hide')
+                            select();
+                        } else {
+                            alert(result);
+                        }
+                    }
+                })
+
+            })
+            //读取数据
+            function select() {
+                //渲染数据
+                $.ajax({
+                    url: "/Goods/select",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (result) {
+                        //alert(result.Data);
+                        $("#listTB tr:gt(0)").remove();
+                        $("#scrID").tmpl(result).appendTo("#listTB");
+                        console.log(result)
+                        //var json = JSON.parse(result.Data);
+                        //console.log(json["Data"][0]["GoodsType"].GoodsTypeName);
+                        //for (var i = 0; i < json["Data"].length; i++) {
+                        //    //alert(json["Data"][i]["GoodsType"].GoodsTypeName);
+                        //    $("#listTB").append("<tr><td>" + json["Data"][i]["Goods"].GoodsId + "</td><td>"
+
+                        //        + json["Data"][i]["Goods"].GoodsName + "</td><td>"
+                        //        + json["Data"][i]["GoodsType"].GoodsTypeName + "</td><td>"
+                        //        + json["Data"][i]["Goods"].SellPrice + "</td></tr>");
+                        //}
+                    }
+
+                })
+            }
+
+        })
+    </script>
+
+</body>
+</html>
