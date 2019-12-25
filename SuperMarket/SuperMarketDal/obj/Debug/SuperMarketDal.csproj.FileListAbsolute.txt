@@ -53,4 +53,3 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csprojAssemblyReference.cache

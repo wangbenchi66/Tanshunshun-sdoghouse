@@ -344,10 +344,6 @@ C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csproj.CoreCo
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csproj.CopyComplete
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.dll
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.pdb
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe.config
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.dll.config
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.pdb
@@ -360,10 +356,12 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\ros
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.CSharp.Core.targets
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.Managed.Core.targets
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\Microsoft.VisualBasic.Core.targets
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\System.AppContext.dll
@@ -393,6 +391,8 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\ros
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\vbc.exe
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\vbc.exe.config
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\vbc.rsp
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe.config
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\EntityFramework.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\EntityFramework.SqlServer.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\HPIT.Data.Core.dll

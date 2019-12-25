@@ -106,6 +106,7 @@
             var myChart2 = echarts.init(document.getElementById('main2'));
             var myChart3 = echarts.init(document.getElementById('main3'));
             Echaer1();
+            var webapi = "http://localhost:52724";
             $(".divtable").hide();
             $("#Select1").change(function () {
                 var id = $(this).children('option:selected').val();
@@ -121,9 +122,9 @@
             })
             function Echaer1() {
                 $.ajax({
-                    url: "/Echart/EcSellAnalyze",
+                    url: webapi+"/api/Goods/EcSellAnalyze",
                     data: {},
-                    type: "post",
+                    type: "get",
                     dataType: "json",
                     success: function (json) {
                         $(".none").hide();
@@ -272,8 +273,8 @@
                 $("#Echaet1").show();
                 //渲染数据
                 $.ajax({
-                    url: "/Echart/GoodsList",
-                    data: { name: param.name },
+                    url: webapi+"api/GoodsList?name=" + param.name,
+                    //data: { name: param.name },
                     type: "post",
                     dataType: "json",
                     success: function (result) {
