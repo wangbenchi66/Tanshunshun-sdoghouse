@@ -17,23 +17,9 @@ namespace SuperMarket.Controllers
         {
             JsonResult json = new JsonResult();
             sellDal dal = new sellDal();
-           // List<sell> list = dal.List();
             List<ModelCount> list = dal.sel(name);
-            //var cc = from ss in list
-            //         select new
-            //         {
-            //             GoodsTypeName = ss.GoodsType.GoodsTypeName
-            //         };
-            //JsonSerializerSettings setting = new JsonSerializerSettings()
-            //{
-            //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            //    Formatting = Formatting.None
-            //};
-            
-
             json.Data = new { Data = list };
             json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            
             return json;
         }
     }
