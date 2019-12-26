@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Http.Results;
 using SuperMarketDal;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Web.Http.Results;
 
 namespace Web.Api.Controllers
 {
@@ -16,9 +11,12 @@ namespace Web.Api.Controllers
         public object Get(string name = "")
         {
             sellDal dal = new sellDal();
-            return dal.sel();
-
+            var json = new { Data = dal.sel(name) };
+            return json;
         }
+            
+        
 
     }
+
 }

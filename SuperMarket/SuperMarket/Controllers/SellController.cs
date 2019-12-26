@@ -12,7 +12,6 @@ namespace SuperMarket.Controllers
         {
             return View();
         }
-        [HttpPost]
         public JsonResult SellList(string name="")
         {
             JsonResult json = new JsonResult();
