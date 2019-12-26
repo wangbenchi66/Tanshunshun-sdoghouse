@@ -15,30 +15,13 @@ namespace SuperMarket.Controllers
         {
             return View();
         }
-        //public JsonResult select()
-        //{
-        //    var ef = {(from Goods in GoodsType
-        //             join tbMC in myModels.CY_FangTaiMC on tbfangtai.FangTaiMCID equals tbMC.FangTaiMCID
-        //             select new Fangtai{ }).ToList();
-        //}
+
         [HttpPost]
         public JsonResult select(string name="")
         {
             List<ModelCount> list = GoodsDAL.select(name);
             JsonResult json = new JsonResult();
-            //var cc = from ss in list
-            //         select new
-            //         {
-            //             GoodsTypeName = ss.GoodsType.GoodsTypeName
-            //         };
-            //JsonSerializerSettings setting = new JsonSerializerSettings()
-            //{
-            //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            //    Formatting = Formatting.None
-            //};
-            //string ret = JsonConvert.SerializeObject(new { Data = list }, setting);
             json.Data = new { Data = list };
-            //json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return json;
         }
         /// <summary>
@@ -49,13 +32,6 @@ namespace SuperMarket.Controllers
         public JsonResult GoodsTypeList()
         {
             List<GoodsType> list = GoodsDAL.GoodsTypeList();
-            //JsonSerializerSettings setting = new JsonSerializerSettings()
-            //{
-            //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            //    Formatting = Formatting.None
-            //};
-            //JsonResult json = new JsonResult();
-            //json.Data = new { Data = list };
             return Json(list);
         }
         /// <summary>

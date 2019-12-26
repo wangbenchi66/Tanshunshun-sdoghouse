@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+
 
 namespace Web.Api
 {
@@ -13,10 +15,12 @@ namespace Web.Api
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
+            //跨域
+            config.EnableCors(new EnableCorsAttribute("*","*","*"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

@@ -220,8 +220,8 @@
             $("#listTB").on("click", "#delete", function () {
                 var id = $(this).attr("GoodsId");
                 $.ajax({
-                    url: "/Goods/GoodsDelete",
-                    data: { id: id },
+                    url: "http://localhost:52724/api/Goods/GoodsDelete?id=" + id,
+                    //data: { id: id },
                     type: "post",
                     dataType: "json",
                     success: function (result) {
@@ -245,8 +245,8 @@
             $("#listTB").on("click", "#delete", function () {
                 var id = $(this).attr("GoodsId");
                 $.ajax({
-                    url: "/Goods/GoodsState",
-                    data: { id: id },
+                    url: "http://localhost:52724/api/Goods/GoodsState?id=" + id,
+                    //data: { id: id },
                     type: "post",
                     dataType: "json",
                     success: function (result) {
@@ -338,16 +338,6 @@
                         $("#listTB tr:gt(0)").remove();
                         $("#scrID").tmpl(result).appendTo("#listTB");
                         console.log(result)
-                        //var json = JSON.parse(result.Data);
-                        //console.log(json["Data"][0]["GoodsType"].GoodsTypeName);
-                        //for (var i = 0; i < json["Data"].length; i++) {
-                        //    //alert(json["Data"][i]["GoodsType"].GoodsTypeName);
-                        //    $("#listTB").append("<tr><td>" + json["Data"][i]["Goods"].GoodsId + "</td><td>"
-
-                        //        + json["Data"][i]["Goods"].GoodsName + "</td><td>"
-                        //        + json["Data"][i]["GoodsType"].GoodsTypeName + "</td><td>"
-                        //        + json["Data"][i]["Goods"].SellPrice + "</td></tr>");
-                        //}
                     }
 
                 })
