@@ -106,7 +106,6 @@
             var myChart2 = echarts.init(document.getElementById('main2'));
             var myChart3 = echarts.init(document.getElementById('main3'));
             Echaer1();
-            var webapi = "http://localhost:52724";
             $(".divtable").hide();
             $("#Select1").change(function () {
                 var id = $(this).children('option:selected').val();
@@ -122,7 +121,7 @@
             })
             function Echaer1() {
                 $.ajax({
-                    url: webapi+"/api/Goods/EcSellAnalyze",
+                    url: "http://localhost:52724/api/Echaert1/EcSellAnalyze",
                     data: {},
                     type: "get",
                     dataType: "json",
@@ -160,9 +159,9 @@
             }
             function Echaer2() {
                 $.ajax({
-                    url: "/Echart/EcSellTOP",
+                    url: "http://localhost:52724/api/Echaert1/EcSellTOP",
                     data: {},
-                    type: "post",
+                    type: "get",
                     dataType: "json",
                     success: function (json) {
                         $(".none").hide();
@@ -215,9 +214,9 @@
             }
             function Echaer3() {
                 $.ajax({
-                    url: "/Echart/EcSellList",
+                    url: "http://localhost:52724/api/Echaert1/EcSellList",
                     data: {},
-                    type: "post",
+                    type: "get",
                     dataType: "json",
                     success: function (json) {
                         $(".none").hide();
@@ -273,9 +272,9 @@
                 $("#Echaet1").show();
                 //渲染数据
                 $.ajax({
-                    url: webapi+"api/GoodsList?name=" + param.name,
+                    url: "http://localhost:52724/api/Echaert1/GoodsList?name=" + param.name,
                     //data: { name: param.name },
-                    type: "post",
+                    type: "get",
                     dataType: "json",
                     success: function (result) {
                         $("#listTB tr:gt(0)").remove();
@@ -291,9 +290,8 @@
                 $("#Echaet2").show();
                 //渲染数据
                 $.ajax({
-                    url: "/Echart/sellList",
-                    data: { name: param.name },
-                    type: "post",
+                    url: "http://localhost:52724/api/Echaert1/GoodsList2?name=" + param.name,
+                    type: "get",
                     dataType: "json",
                     success: function (result) {
                         $("#listTB2 tr:gt(0)").remove();

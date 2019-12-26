@@ -11,55 +11,51 @@ namespace Web.Api.Controllers
     public class GoodsController : ApiController
     {
         /// <summary>
-        /// 图表各类型统计
+        /// 商品条件查找
         /// </summary>
+        /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet]
-        public object EcSellAnalyze()
+        public object select(string name)
         {
-            return EchartDal.EcSellAnalyze();
-            
+            var list =new { Data = GoodsDAL.select(name) };
+            return list;
+        }
+        [HttpPost]
+        public object GoodsDelete(int id)
+        {
+            int num = 0;
+            Goods goods = new Goods()
+            {
+                GoodsId = id
+            };
+            int result = GoodsDAL.GoodsDelete(goods);
+            if (result > 0)
+            {
+                num = result;
+            }
+            return Json(num);
         }
 
         /// <summary>
-        /// 图表统计
+        /// 商品信息上架
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public object EcSellTOP()
+        public object GoodsState(int id)
         {
-            return EchartDal.EcSellTOP();
-
+            int num = 0;
+            Goods goods = new Goods()
+            {
+                GoodsId = id
+            };
+            int result = GoodsDAL.GoodsState(goods);
+            if (result > 0)
+            {
+                num = result;
+            }
+            return Json(num);
         }
-
-        /// <summary>
-        /// 图表列表统计
-        /// </summary>
-        /// <returns></returns>
-        public object EcSellList()
-        {
-            return EchartDal.EcSellList();
-
-        }
-        /// <summary>
-        /// 商品类别条件查询
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public object GoodsList(string name)
-        {
-            return EchartDal.GoodsList(name);
-        }
-
-        /// <summary>
-        /// 商品类别条件查询
-        /// </summary>
-        /// <returns></returns>
-        //[HttpPost]
-        //public object GoodsList2([FromBody]string from)
-        //{
-        //    ProductDetail
-        //    return EchartDal.GoodsList(name);
-        //}
     }
 }
