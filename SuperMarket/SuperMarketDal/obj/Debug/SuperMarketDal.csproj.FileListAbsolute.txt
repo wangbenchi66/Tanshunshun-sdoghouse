@@ -21,7 +21,6 @@ C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\De
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.xml
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\log4net.xml
-C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csprojAssemblyReference.cache
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CoreCompileInputs.cache
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
 C:\Users\TSM\Desktop\git\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
