@@ -344,6 +344,8 @@ C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csproj.CoreCo
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.csproj.CopyComplete
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.dll
 C:\Users\TSM\Desktop\SuperMarket\SuperMarket\obj\Debug\SuperMarket.pdb
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\EntityFramework.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Helpers.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.dll.config
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\SuperMarket.pdb
@@ -393,7 +395,6 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\ros
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\vbc.rsp
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\roslyn\VBCSCompiler.exe.config
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\EntityFramework.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\EntityFramework.SqlServer.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\HPIT.Data.Core.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\log4net.dll
@@ -417,7 +418,6 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\Sys
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Webpages.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Webpages.Deployment.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Webpages.Razor.xml
-E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Helpers.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\System.Web.Mvc.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarket\bin\zh-Hans\System.Web.Razor.resources.dll

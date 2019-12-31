@@ -52,3 +52,8 @@ E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csproj.CopyComplete
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.dll
 E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.pdb
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\Newtonsoft.Json.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\Newtonsoft.Json.xml
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\实训\项目\GIT小组\Tanshunshun-sdoghouse\SuperMarket\SuperMarketDal\obj\Debug\SuperMarketDal.csprojAssemblyReference.cache

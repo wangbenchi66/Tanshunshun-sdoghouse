@@ -515,6 +515,7 @@
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Controllers\tuwenController.cs" />
+    <Compile Include="Controllers\WeaTherController.cs" />
     <Compile Include="Filter\CustomAuthenticationFilter.cs" />
     <Compile Include="Filter\DeluxeUser.cs" />
     <Compile Include="Global.asax.cs">
@@ -558,6 +559,7 @@
     <Content Include="Views\tuwen\Index.cshtml" />
     <Content Include="Views\_LayoutPage.cshtml" />
     <Content Include="Views\Echart\IndexTest.cshtml" />
+    <Content Include="Views\WeaTher\WeaTherIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -575,6 +577,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperMarketDal\SuperMarketDal.csproj">

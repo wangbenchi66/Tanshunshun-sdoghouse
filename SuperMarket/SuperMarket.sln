@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarketDal", "SuperMark
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "Web.Api\Web.Api.csproj", "{690DB32C-2B90-4334-8768-BE226A0D57DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Text", "Text\Text.csproj", "{02CDE7CB-8C32-4D96-B1D7-332B9EA25CC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{690DB32C-2B90-4334-8768-BE226A0D57DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{690DB32C-2B90-4334-8768-BE226A0D57DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{690DB32C-2B90-4334-8768-BE226A0D57DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CDE7CB-8C32-4D96-B1D7-332B9EA25CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CDE7CB-8C32-4D96-B1D7-332B9EA25CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CDE7CB-8C32-4D96-B1D7-332B9EA25CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CDE7CB-8C32-4D96-B1D7-332B9EA25CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

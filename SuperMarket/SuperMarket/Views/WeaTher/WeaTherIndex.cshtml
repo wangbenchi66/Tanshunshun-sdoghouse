@@ -1,0 +1,153 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>天气</title>
+    <script src="~/js_css/jquery-1.7.js"></script>
+    <script src="~/js_css/jquery.tmpl.js"></script>
+</head>
+<body>
+    <div>
+        <span>天气编号：</span><input id="Text1" type="text" value="101180101" />
+        <input id="Button1" type="button" value="查询" />
+
+        <table id="tb">
+            <tr>
+                <th>城市</th>
+                <th>天气类型</th>
+                <th>最高温度</th>
+                <th>最低温度</th>
+                <th>温度</th>
+                <th>风向</th>
+                <th>风力</th>
+                <th>空气质量</th>
+            </tr>
+        </table>
+        <script id="sc" type="text/x-jquery-tmpl">
+            {{each Data}}
+            <tr>
+                <td>${city}</td>
+                <td>${data.forecast[0].type}</td>
+                @*<td>${high}</td>
+                    <td>${low}</td>
+                    <td>${date}</td>
+                    <td>${fx}</td>
+                    <td>${fl}</td>
+                    <td>${quality}</td>*@
+            </tr>
+            {{/each}}
+        </script>
+    </div>
+
+
+    <script>
+        $(function () {
+            //点击获取
+            $("#Button1").click(function () {
+                $.ajax({
+                    url: "/WeaTher/select",
+                    dataType: "json",
+                    data: { url: $("#Text1").val() },
+                    success: function (data) {
+                        console.log(data);
+                        alert(data.Data.data.forecast[0]["type"]);
+                        //var cityInfo = data.Data.cityInfo;
+                        //CityInfo添加
+                        //$.ajax({
+                        //    url: "/WeaTher/insCityInfo",
+                        //    dataType: "json",
+                        //    type:"post",
+                        //    data: {
+                        //        city: cityInfo.city,
+                        //        citykey: cityInfo.citykey,
+                        //        parent: cityInfo.parent,
+                        //        updateTime:cityInfo.updateTime,
+                        //    },
+                        //    success: function (acc) {
+                        //        alert(acc);
+                        //        console.log(acc);
+                        //        alert("success");
+                        //    }, error: function () {
+                        //        alert("arr错误");
+                        //    }
+                        //})
+                        alert(data.Data.data.shidu);
+                        //var Cityweather = data.Data.data;
+                        //cityweather添加
+                        //$.ajax({
+                        //    url: "/WeaTher/insCityweather",
+                        //    dataType: "json",
+                        //    type: "post",
+                        //    data: {
+                        //        cityInfoid: Cityweather.cityInfoid,
+                        //        shidu: Cityweather.shidu,
+                        //        pm25:Cityweather.pm25,
+                        //        pm10: Cityweather.pm10,
+                        //        quality: Cityweather.quality,
+                        //        wendu: Cityweather.wendu,
+                        //        ganmao: Cityweather.ganmao,
+                        //        cityInfoid: Cityweather.cityInfoid,
+                        //        cityInfo: Cityweather.cityInfo,
+                        //    },
+                        //    success: function (acc) {
+                        //        alert(acc);
+                        //        //console.log(acc);
+                        //        alert("success");
+                        //    }, error: function () {
+                        //        alert("arr错误");
+                        //    }
+                        //})
+                        //alert(data.Data.cityInfo["city"]);
+
+                        //循环
+                        //var forecast = data.Data.data.forecast;
+                        //forecast添加
+                        //for (var i = 0; i <= forecast.length; i++) {
+                        //$.ajax({
+                        //    url: "/WeaTher/insForecast",
+                        //    dataType: "json",
+                        //    type: "post",
+                        //    data: {
+                        //    date = forecast[i]["date"];
+                        //    high = forecast[i]["high"];
+                        //    low = forecast[i]["low"];
+                        //    ymd = forecast[i]["ymd"];
+                        //    week = forecast[i]["week"];
+                        //    sunrise = forecast[i]["sunrise"];
+                        //    sunset = forecast[i]["sunset"];
+                        //    fx =forecast[i]["fx"];
+                        //    fl = forecast[i]["fl"];
+                        //    type = forecast[i]["type"];
+                        //    notice = forecast[i]["notice"];
+                        //    cityweatherid =forecast[i]["cityweatherid"];
+                        //    },
+                        //    success: function (acc) {
+                        //        alert(acc);
+                        //        //console.log(acc);
+                        //        alert("success");
+                        //    }, error: function () {
+                        //        alert("arr错误");
+                        //    }
+                        //})
+                        //}
+
+
+                    }, error: function () {
+                        alert("未知错误");
+                    }
+                })
+            })
+
+
+
+        })
+
+    </script>
+</body>
+</html>
